@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "angular-sdk": [
+        "dist/angular-sdk"
+      ],
+      "angular-sdk/*": [
+        "dist/angular-sdk/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
