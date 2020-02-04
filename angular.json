@@ -31,12 +31,11 @@
               "projects/angular-sdk/tsconfig.lib.json",
               "projects/angular-sdk/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "angular-sdk"
 }
