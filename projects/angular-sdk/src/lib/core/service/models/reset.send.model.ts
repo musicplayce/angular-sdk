@@ -1,7 +1,7 @@
 export class ResetSendModel {
-    password: string;
+    password: string
 
-    constructor(password: string){
+    constructor(password: string) {
         this.password = password
     }
 }

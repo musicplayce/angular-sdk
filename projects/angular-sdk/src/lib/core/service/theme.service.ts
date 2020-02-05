@@ -1,23 +1,23 @@
-import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
-import { Observable } from "rxjs";
+import { Injectable } from '@angular/core'
+import { Subject } from 'rxjs'
+import { Observable } from 'rxjs'
 
 @Injectable({
-  providedIn: "root"
+    providedIn: 'root'
 })
 export class ThemeService {
-  private isDarkTheme: Subject<boolean>;
+    private isDarkTheme: Subject<boolean>
 
-  constructor() {
-    this.isDarkTheme = new Subject<boolean>();
-    this.isDarkTheme.next(false);
-  }
+    constructor() {
+        this.isDarkTheme = new Subject<boolean>()
+        this.isDarkTheme.next(false)
+    }
 
-  setDarkTheme(isDarkTheme: boolean) {
-    this.isDarkTheme.next(isDarkTheme);
-  }
+    setDarkTheme(isDarkTheme: boolean) {
+        this.isDarkTheme.next(isDarkTheme)
+    }
 
-  getDarkTheme(): Observable<boolean> {
-    return this.isDarkTheme;
-  }
+    getDarkTheme(): Observable<boolean> {
+        return this.isDarkTheme
+    }
 }

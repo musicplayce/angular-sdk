@@ -1,4 +1,4 @@
 export interface CursorModel {
-  previous?: string;
-  next?: string;
+    previous?: string
+    next?: string
 }
