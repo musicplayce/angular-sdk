@@ -40,6 +40,7 @@ jobs:
         #  if: branch = master
         - stage: build & publish lib
           script:
+              - nvm install lts/*
               - npm run build:lib
               - npm run publish:lib
           if: branch = master
