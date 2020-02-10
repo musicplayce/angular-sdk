@@ -1,116 +1,116 @@
 {
-  "name": "@musicplayce/angular-sdk",
-  "version": "1.0.0",
-  "description": "A angular SDK to be used in musicplayce's web projects",
-  "author": "Musicplayce",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/musicplayce/angular-sdk.git"
-  },
-  "bugs": {
-    "url": "https://github.com/musicplayce/angular-sdk/issues"
-  },
-  "homepage": "https://github.com/musicplayce/angular-sdk",
-  "keywords": [
-    "angular",
-    "sdk",
-    "typescript",
-    "javascript",
-    "musicplayce"
-  ],
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "format:check": "prettier --list-different 'projects/**/*.ts'",
-    "format:write": "prettier --write 'projects/**/*.ts'",
-    "test:lib-coverage": "ng test ng-alert --code-coverage --watch=false",
-    "report-coverage:lib": "cat ./coverage/angular-sdk/lcov.info | codecov",
-    "copy:readme": "copyfiles ./README.md ./dist/angular-sdk",
-    "build:lib": "npm run copy:readme && ng build angular-sdk",
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-    "semantic-release": "semantic-release",
-    "adjust-version": "npm-run-all adjust-version:*",
-    "adjust-version:lib": "rjp projects/angular-sdk/package.json version $VERSION",
-    "adjust-version:main": "rjp package.json version $VERSION"
-  },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "~8.2.9",
-    "@angular/common": "~8.2.9",
-    "@angular/compiler": "~8.2.9",
-    "@angular/core": "~8.2.9",
-    "@angular/forms": "~8.2.9",
-    "@angular/platform-browser": "~8.2.9",
-    "@angular/platform-browser-dynamic": "~8.2.9",
-    "@angular/router": "~8.2.9",
-    "@auth0/angular-jwt": "^3.0.1",
-    "rxjs": "~6.4.0",
-    "tslib": "^1.10.0",
-    "zone.js": "~0.9.1"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.24",
-    "@angular-devkit/build-ng-packagr": "~0.803.24",
-    "@angular/cli": "~8.3.8",
-    "@angular/compiler-cli": "~8.2.9",
-    "@angular/language-service": "~8.2.9",
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@commitlint/prompt": "^8.3.5",
-    "@semantic-release/changelog": "^5.0.0",
-    "@semantic-release/commit-analyzer": "^8.0.1",
-    "@semantic-release/exec": "^5.0.0",
-    "@semantic-release/git": "^9.0.0",
-    "@semantic-release/npm": "^7.0.2",
-    "@semantic-release/release-notes-generator": "^9.0.0",
-    "@types/jasmine": "~3.3.8",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~8.9.4",
-    "codecov": "^3.6.4",
-    "codelyzer": "^5.0.0",
-    "copyfiles": "^2.2.0",
-    "husky": "^4.2.1",
-    "jasmine-core": "~3.4.0",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~4.1.0",
-    "karma-chrome-launcher": "~2.2.0",
-    "karma-coverage-istanbul-reporter": "~2.0.1",
-    "karma-firefox-launcher": "^1.3.0",
-    "karma-jasmine": "~2.0.1",
-    "karma-jasmine-html-reporter": "^1.4.0",
-    "lint-staged": "^10.0.7",
-    "ng-packagr": "^5.4.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^1.19.1",
-    "protractor": "~5.4.0",
-    "replace-json-property": "^1.4.3",
-    "semantic-release": "^17.0.2",
-    "ts-node": "~7.0.0",
-    "tsickle": "^0.37.0",
-    "tslint": "~5.15.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.1.0",
-    "typescript": "~3.5.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    "name": "@musicplayce/angular-sdk",
+    "version": "1.0.0",
+    "description": "A angular SDK to be used in musicplayce's web projects",
+    "author": "Musicplayce",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/musicplayce/angular-sdk.git"
+    },
+    "bugs": {
+        "url": "https://github.com/musicplayce/angular-sdk/issues"
+    },
+    "homepage": "https://github.com/musicplayce/angular-sdk",
+    "keywords": [
+        "angular",
+        "sdk",
+        "typescript",
+        "javascript",
+        "musicplayce"
+    ],
+    "scripts": {
+        "ng": "ng",
+        "start": "ng serve",
+        "build": "ng build",
+        "test": "ng test",
+        "lint": "ng lint",
+        "e2e": "ng e2e",
+        "format:check": "prettier --list-different 'projects/**/*.ts'",
+        "format:write": "prettier --write 'projects/**/*.ts'",
+        "test:lib-coverage": "ng test angular-sdk --code-coverage --watch=false",
+        "report-coverage:lib": "cat ./coverage/angular-sdk/lcov.info | codecov",
+        "copy:readme": "copyfiles ./README.md ./dist/angular-sdk",
+        "build:lib": "npm run copy:readme && ng build angular-sdk",
+        "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+        "semantic-release": "semantic-release",
+        "adjust-version": "npm-run-all adjust-version:*",
+        "adjust-version:lib": "rjp projects/angular-sdk/package.json version $VERSION",
+        "adjust-version:main": "rjp package.json version $VERSION"
+    },
+    "private": true,
+    "dependencies": {
+        "@angular/animations": "~8.2.9",
+        "@angular/common": "~8.2.9",
+        "@angular/compiler": "~8.2.9",
+        "@angular/core": "~8.2.9",
+        "@angular/forms": "~8.2.9",
+        "@angular/platform-browser": "~8.2.9",
+        "@angular/platform-browser-dynamic": "~8.2.9",
+        "@angular/router": "~8.2.9",
+        "@auth0/angular-jwt": "^3.0.1",
+        "rxjs": "~6.4.0",
+        "tslib": "^1.10.0",
+        "zone.js": "~0.9.1"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "~0.803.24",
+        "@angular-devkit/build-ng-packagr": "~0.803.24",
+        "@angular/cli": "~8.3.8",
+        "@angular/compiler-cli": "~8.2.9",
+        "@angular/language-service": "~8.2.9",
+        "@commitlint/cli": "^8.3.5",
+        "@commitlint/config-conventional": "^8.3.4",
+        "@commitlint/prompt": "^8.3.5",
+        "@semantic-release/changelog": "^5.0.0",
+        "@semantic-release/commit-analyzer": "^8.0.1",
+        "@semantic-release/exec": "^5.0.0",
+        "@semantic-release/git": "^9.0.0",
+        "@semantic-release/npm": "^7.0.2",
+        "@semantic-release/release-notes-generator": "^9.0.0",
+        "@types/jasmine": "~3.3.8",
+        "@types/jasminewd2": "~2.0.3",
+        "@types/node": "~8.9.4",
+        "codecov": "^3.6.4",
+        "codelyzer": "^5.0.0",
+        "copyfiles": "^2.2.0",
+        "husky": "^4.2.1",
+        "jasmine-core": "~3.4.0",
+        "jasmine-spec-reporter": "~4.2.1",
+        "karma": "~4.1.0",
+        "karma-chrome-launcher": "~2.2.0",
+        "karma-coverage-istanbul-reporter": "~2.0.1",
+        "karma-firefox-launcher": "^1.3.0",
+        "karma-jasmine": "~2.0.1",
+        "karma-jasmine-html-reporter": "^1.4.0",
+        "lint-staged": "^10.0.7",
+        "ng-packagr": "^5.4.0",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^1.19.1",
+        "protractor": "~5.4.0",
+        "replace-json-property": "^1.4.3",
+        "semantic-release": "^17.0.2",
+        "ts-node": "~7.0.0",
+        "tsickle": "^0.37.0",
+        "tslint": "~5.15.0",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-plugin-prettier": "^2.1.0",
+        "typescript": "~3.5.3"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "lint-staged": {
+        "projects/**/*.ts": [
+            "prettier --write",
+            "git add"
+        ]
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
     }
-  },
-  "lint-staged": {
-    "projects/**/*.ts": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  }
 }
