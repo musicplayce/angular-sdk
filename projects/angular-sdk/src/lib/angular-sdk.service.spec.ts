@@ -1,9 +1,9 @@
-import { TestBed } from "@angular/core/testing";
+import { TestBed } from '@angular/core/testing'
 
-import { AngularSdkService } from "./angular-sdk.service";
+import { AngularSdkService } from './angular-sdk.service'
 
-describe("AngularSdkService", () => {
-  /* let service: AngularSdkService;
+describe('AngularSdkService', () => {
+    /* let service: AngularSdkService;
   beforeEach(() => {
     service = new AngularSdkService();
   });
@@ -15,4 +15,4 @@ describe("AngularSdkService", () => {
   it("Converter", () => {
     expect(service.convert("Fellipe")).toBe("-- Fellipe --");
   });*/
-});
+})
