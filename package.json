@@ -1,6 +1,6 @@
 {
   "name": "@musicplayce/angular-sdk",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A angular SDK to be used in musicplayce's web projects",
   "author": "Musicplayce",
   "repository": {
@@ -31,7 +31,11 @@
     "report-coverage:lib": "cat ./coverage/angular-sdk/lcov.info | codecov",
     "copy:readme": "copyfiles ./README.md ./dist/angular-sdk",
     "build:lib": "npm run copy:readme && ng build angular-sdk",
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+    "semantic-release": "semantic-release",
+    "adjust-version": "npm-run-all adjust-version:*",
+    "adjust-version:lib": "rjp projects/angular-sdk/package.json version $VERSION",
+    "adjust-version:main": "rjp package.json version $VERSION"
   },
   "private": true,
   "dependencies": {
@@ -57,6 +61,12 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@commitlint/prompt": "^8.3.5",
+    "@semantic-release/changelog": "^5.0.0",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/npm": "^7.0.2",
+    "@semantic-release/release-notes-generator": "^9.0.0",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
@@ -74,8 +84,11 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "lint-staged": "^10.0.7",
     "ng-packagr": "^5.4.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
     "protractor": "~5.4.0",
+    "replace-json-property": "^1.4.3",
+    "semantic-release": "^17.0.2",
     "ts-node": "~7.0.0",
     "tsickle": "^0.37.0",
     "tslint": "~5.15.0",
@@ -85,7 +98,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
