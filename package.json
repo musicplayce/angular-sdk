@@ -86,6 +86,7 @@
         "lint-staged": "^10.0.7",
         "ng-packagr": "^5.4.0",
         "npm-run-all": "^4.1.5",
+        "npx": "^10.2.2",
         "prettier": "^1.19.1",
         "protractor": "~5.4.0",
         "replace-json-property": "^1.4.3",
