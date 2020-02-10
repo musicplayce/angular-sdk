@@ -1,10 +1,10 @@
-import { NgModule } from "@angular/core";
-import { CoreModule } from "./core/core.module";
-import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from '@angular/core'
+import { CoreModule } from './core/core.module'
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
-  declarations: [],
-  imports: [CoreModule, HttpClientModule],
-  exports: []
+    declarations: [],
+    imports: [CoreModule, HttpClientModule],
+    exports: []
 })
 export class AngularSdkModule {}
