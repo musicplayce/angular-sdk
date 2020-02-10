@@ -14,7 +14,7 @@ export class AngularSdkService {
 
     public getAuth(): Observable<any> {
         return this.httpClient.get(
-            'https://api-sandbox.musicplayce.com/v1/auth/ms/'
+            'https://api-sandbox.musicplayce.com/v1/auth/me/'
         )
     }
 }
