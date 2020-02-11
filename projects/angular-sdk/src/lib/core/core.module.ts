@@ -1,7 +1,13 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core'
+import {
+    NgModule,
+    Optional,
+    SkipSelf,
+    ModuleWithProviders
+} from '@angular/core'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { RefreshTokenInterceptor } from './interceptors/refresh-token.interceptor'
 import { throwIfAlreadyLoaded } from './guard/module-import.guard'
+import { AuthService } from './service/auth.service'
 
 @NgModule({
     imports: [HttpClientModule],
@@ -11,11 +17,14 @@ import { throwIfAlreadyLoaded } from './guard/module-import.guard'
             useClass: RefreshTokenInterceptor,
             multi: true
         }
-    ]
+    ],
+    exports: []
 })
 export class CoreModule {
-    constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
-        console.log('constructor coremodule')
-        throwIfAlreadyLoaded(parentModule, 'CoreModule')
+    static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: CoreModule,
+            providers: [AuthService]
+        }
     }
 }

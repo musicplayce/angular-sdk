@@ -85,6 +85,8 @@ export class AuthService {
         body.data = new DataRequest()
         body.data.attributes = user
 
+        console.log(user)
+
         return this.http.post<AuthResponse>(API_SIGNIN, user).pipe(
             tap(resp => {
                 this.setRefreshToken(resp.jwt.refresh_token)
