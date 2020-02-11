@@ -5,6 +5,7 @@ export const environment = {
     production: true,
 
     COOKIE_DOMAIN: '.musicplayce.com',
+    COOKIE_SECURE: false,
 
     // AUTH
     PROFILE: API_BASE + '/auth/me',

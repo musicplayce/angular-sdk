@@ -12,6 +12,7 @@ export const environment = {
     production: false,
 
     COOKIE_DOMAIN: 'localhost',
+    COOKIE_SECURE: false,
 
     // AUTH
     PROFILE: API_BASE + '/auth/me',
