@@ -2,6 +2,7 @@ export class CookieUtil {
     public static createCookie(
         name: string,
         value: any,
+        hours?: number,
         days?: number,
         domain?: string,
         secure: boolean = true,
@@ -10,7 +11,7 @@ export class CookieUtil {
         let expiresString: string = ''
         if (days) {
             let date = new Date()
-            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000)
+            date.setTime(date.getTime() + (days * 24 + hours) * 60 * 60 * 1000)
             expiresString = '; expires=' + date.toUTCString()
         }
 

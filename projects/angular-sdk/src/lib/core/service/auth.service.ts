@@ -47,24 +47,35 @@ export class AuthService {
     public setAccessToken(token: string): void {
         localStorage.setItem('access-token', token)
         CookieUtil.createCookie(
-            'jwt',
+            'access-token',
             token,
-            60,
+            1,
+            0,
             environment.COOKIE_DOMAIN,
             environment.COOKIE_SECURE
         )
     }
 
     public getAccessToken(): string {
-        return localStorage.getItem('access-token')
+        const access_token = CookieUtil.readCookie('access-token')
+        return access_token
     }
 
     public setRefreshToken(token: string): void {
         localStorage.setItem('refresh-token', token)
+        CookieUtil.createCookie(
+            'refresh-token',
+            token,
+            0,
+            90,
+            environment.COOKIE_DOMAIN,
+            environment.COOKIE_SECURE
+        )
     }
 
     public getRefreshToken(): string {
-        return localStorage.getItem('refresh-token')
+        const refresh_token = CookieUtil.readCookie('refresh-token')
+        return refresh_token
     }
 
     public getUserId(): string {
