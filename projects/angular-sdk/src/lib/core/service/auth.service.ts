@@ -82,6 +82,10 @@ export class AuthService {
         return localStorage.getItem('iss')
     }
 
+    public setUserId(userId: string) {
+        localStorage.setItem('iss', userId)
+    }
+
     public refreshToken(): Observable<AuthResponse> {
         let body = new RefreshSendModel(this.getRefreshToken())
         return this.http.post<AuthResponse>(API_REFRESH, body).pipe(
@@ -115,6 +119,7 @@ export class AuthService {
             tap(resp => {
                 this.setRefreshToken(resp.jwt.refresh_token)
                 this.setAccessToken(resp.jwt.token)
+                this.setUserId(resp.jwt.iss)
             })
         )
     }
