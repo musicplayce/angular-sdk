@@ -9,6 +9,7 @@ import { AuthResponse } from './models/auth.response.model'
 import { ApiRequest, DataRequest } from './models/request.base.model'
 import { environment } from '../../../environments/environment'
 import { RefreshSendModel } from './models/refresh.send.model'
+import { CookieUtil } from '../util/cookie.util'
 import { encode } from 'utf8'
 import { SHA256 } from 'crypto-js'
 import { tap } from 'rxjs/operators'
@@ -45,6 +46,13 @@ export class AuthService {
 
     public setAccessToken(token: string): void {
         localStorage.setItem('access-token', token)
+        CookieUtil.createCookie(
+            'jwt',
+            token,
+            60,
+            environment.COOKIE_DOMAIN,
+            environment.COOKIE_SECURE
+        )
     }
 
     public getAccessToken(): string {
