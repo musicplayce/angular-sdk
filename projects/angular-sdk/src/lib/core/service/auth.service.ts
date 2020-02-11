@@ -9,6 +9,8 @@ import { AuthResponse } from './models/auth.response.model'
 import { ApiRequest, DataRequest } from './models/request.base.model'
 import { environment } from '../../../environments/environment'
 import { RefreshSendModel } from './models/refresh.send.model'
+import { encode } from 'utf8'
+import { SHA256 } from 'crypto-js'
 import { tap } from 'rxjs/operators'
 
 const API_SIGNIN = environment.SIGNIN
@@ -80,6 +82,9 @@ export class AuthService {
     }
 
     public login(user: UserAuth): Observable<AuthResponse> {
+        let passUtf8 = encode(user.password)
+        let passEncode = SHA256(passUtf8)
+        user.password = passEncode.toString()
         let body = new ApiRequest()
 
         body.data = new DataRequest()
