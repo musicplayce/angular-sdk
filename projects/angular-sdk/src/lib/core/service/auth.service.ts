@@ -32,6 +32,7 @@ export class AuthService {
     API_VERIFY_SIGNUP_TOKEN = environment.VERIFY_SIGNUP_TOKEN
     API_SIGNIN_SPOTIFY = environment.SIGNIN_SPOTIFY
     COOKIE_DOMAIN = environment.COOKIE_DOMAIN
+    SPOTIFY_REDIRECT_URI = environment.SPOTIFY_REDIRECT_URI
     constructor(
         @Inject(BASE_URL) base_url_injected: string,
         private http: HttpClient
@@ -141,10 +142,18 @@ export class AuthService {
                 })
             )
     }
-
+    /**
+     * Returns with tokens from a new authentication
+     *
+     * @param credentials has code redirect_url and device_token
+     * @returns {Observable<AuthResponse>} an observable with tokens in AuthResponse model message
+     */
     public loginSpotify(credentials: SpotifyAuth): Observable<AuthResponse> {
         return this.http
-            .post<AuthResponse>(BASE_URL + this.API_SIGNIN_SPOTIFY, credentials)
+            .post<AuthResponse>(
+                this.BASE_URL + this.API_SIGNIN_SPOTIFY,
+                credentials
+            )
             .pipe(
                 tap(resp => {
                     this.setRefreshToken(resp.jwt.refresh_token)
