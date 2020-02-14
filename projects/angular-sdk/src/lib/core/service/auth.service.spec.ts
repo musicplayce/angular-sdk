@@ -8,6 +8,7 @@ import { AuthService } from './auth.service'
 import { AngularSdkModule } from '../../angular-sdk.module'
 import { AuthResponse } from 'angular-sdk/lib/core/service/models/auth.response.model'
 import { UserAuth } from 'angular-sdk/public-api'
+import { SpotifyAuth } from 'angular-sdk/lib/core/service/models/spotify.auth.model'
 
 describe('AuthService', () => {
     let injector: TestBed
@@ -55,6 +56,31 @@ describe('AuthService', () => {
 
         const request = httpMock.expectOne(
             `${service.BASE_URL}${service.API_SIGNIN}`
+        )
+        expect(request.request.method).toBe('POST')
+        request.flush(dummyAuthResponse)
+    })
+
+    it('#loginSpotify should return jwt tokens', () => {
+        const dummyAuthResponse: AuthResponse = {
+            jwt: {
+                iss: '1',
+                token: '1',
+                refresh_token: '1'
+            }
+        }
+
+        const credentials: SpotifyAuth = {
+            code: '1',
+            redirect_uri: `${service.SPOTIFY_REDIRECT_URI}`,
+            device_token: '1'
+        }
+
+        service.loginSpotify(credentials).subscribe(retrive => {
+            expect(retrive).toEqual(dummyAuthResponse)
+        })
+        const request = httpMock.expectOne(
+            service.BASE_URL + service.API_SIGNIN_SPOTIFY
         )
         expect(request.request.method).toBe('POST')
         request.flush(dummyAuthResponse)
