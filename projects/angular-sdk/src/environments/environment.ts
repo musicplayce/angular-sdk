@@ -19,7 +19,7 @@ export const environment = {
     SIGNIN: API_BASE_V2 + '/auth/signin',
     SIGNUP: API_BASE + '/auth/signup',
     SIGNOUT: API_BASE + '/auth/signout',
-    SIGNIN_SPOTIFY: API_BASE_V2 + '/auth/social/spotify',
+    SIGNIN_SPOTIFY: API_BASE + '/auth/social/spotify',
     REFRESH: API_BASE_V2 + '/auth/refresh',
     FORGOT: API_BASE + '/auth/forgot',
     VALIDATE_TOKEN: API_BASE + '/auth/validate',
@@ -53,7 +53,7 @@ export const environment = {
         pro: 'plan_GETJuOBTEJ0i3i'
     },
 
-    SPOTIFY_REDIRECT_URI: '/auth/spotify',
+    SPOTIFY_REDIRECT_URI: API_BASE_V2 + '/auth/spotify',
     SPOTIFY_CLIENT_ID: '42ffffab5b9a45289e7b6ede412b3487',
 
     DATA_POLL: API_BASE + '/data/polls/',
