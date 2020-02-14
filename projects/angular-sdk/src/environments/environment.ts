@@ -2,8 +2,8 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-const API_BASE = 'https://api-sandbox.musicplayce.com/v1'
-const API_BASE_V2 = 'https://api-sandbox.musicplayce.com/v2'
+const API_BASE = '/v1'
+const API_BASE_V2 = '/v2'
 
 //const API_BASE = 'http://localhost:8000/v1'
 const API_DATA_BASE = API_BASE + '/data'
@@ -16,7 +16,7 @@ export const environment = {
 
     // AUTH
     PROFILE: API_BASE + '/auth/me',
-    SIGNIN: API_BASE + '/auth/signin',
+    SIGNIN: API_BASE_V2 + '/auth/signin',
     SIGNUP: API_BASE + '/auth/signup',
     SIGNOUT: API_BASE + '/auth/signout',
     SIGNIN_SPOTIFY: API_BASE + '/auth/social/spotify',
