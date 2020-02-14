@@ -1,3 +1,17 @@
+## [1.0.1](https://github.com/musicplayce/angular-sdk/compare/v1.0.0...v1.0.1) (2020-02-14)
+
+
+### Bug Fixes
+
+* **auth:** angular service compatibility ([fe31c9b](https://github.com/musicplayce/angular-sdk/commit/fe31c9b12e0fa929b366900d1e9f3dcfb03a1559))
+* **auth:** fix password encode issues ([e02c760](https://github.com/musicplayce/angular-sdk/commit/e02c76066521d32bb8277ac29ab3fff46f99f0a0))
+* **authservice:** problem in import models ([0b08e72](https://github.com/musicplayce/angular-sdk/commit/0b08e72e2185674413f0c7277cf556ba7c4fa1ce))
+
+
+### Performance Improvements
+
+* **authservice:** save iss as well ([87832d6](https://github.com/musicplayce/angular-sdk/commit/87832d6707d152c4f4da511a3c4752c7b8e28e61))
+
 # 1.0.0 (2020-02-10)
 
 
