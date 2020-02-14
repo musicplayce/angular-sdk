@@ -53,7 +53,7 @@ export const environment = {
         pro: 'plan_GETJuOBTEJ0i3i'
     },
 
-    SPOTIFY_REDIRECT_URI: 'http://localhost:4200/auth/spotify',
+    SPOTIFY_REDIRECT_URI: API_BASE + '/auth/spotify',
     SPOTIFY_CLIENT_ID: '42ffffab5b9a45289e7b6ede412b3487',
 
     DATA_POLL: API_BASE + '/data/polls/',
