@@ -130,10 +130,39 @@ describe('AuthService', () => {
         request.flush(dummyMessage)
     })
 
-    it('#clearAllTokens shoud reset', () => {
+    it('#clearAllTokens should clear all tokens', () => {
         service.setAccessToken(access_token)
+        service.setRefreshToken(refresh_token)
         service.clearAllTokens()
         expect(service.getAccessToken()).toBeNull()
+        expect(service.getRefreshToken()).toBeNull()
         service.setAccessToken(access_token)
+        service.setRefreshToken(refresh_token)
+    })
+
+    it('#signout should retrive null authresponse values', () => {
+        service.setAccessToken(access_token)
+        service.setRefreshToken(refresh_token)
+
+        const dummyAuthResponse: AuthResponse = {
+            jwt: {
+                iss: null,
+                token: null
+            }
+        }
+
+        service.signout().subscribe(retrive => {
+            expect(retrive).toEqual(dummyAuthResponse)
+            expect(service.getAccessToken()).toBeNull()
+            expect(service.getRefreshToken()).toBeNull()
+        })
+
+        const request = httpMock.expectOne(
+            service.BASE_URL + service.API_SIGNOUT
+        )
+        expect(request.request.method).toBe('GET')
+        request.flush(dummyAuthResponse)
+        service.setAccessToken(access_token)
+        service.setRefreshToken(refresh_token)
     })
 })
