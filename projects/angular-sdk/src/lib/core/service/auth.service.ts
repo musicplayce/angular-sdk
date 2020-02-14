@@ -142,6 +142,7 @@ export class AuthService {
                 })
             )
     }
+
     /**
      * Returns with tokens from a new authentication
      *
@@ -162,8 +163,14 @@ export class AuthService {
             )
     }
 
+    /**
+     * Returns a successfully message if email was sent
+     *
+     * @param email of profile who wants recovery password
+     * @returns success message
+     */
     public recoveryRequest(email: string): any {
-        return this.http.post(BASE_URL + this.API_FORGOT, email, {
+        return this.http.post(this.BASE_URL + this.API_FORGOT, email, {
             responseType: 'text'
         })
     }
@@ -171,9 +178,12 @@ export class AuthService {
     public verifyToken(origin: string, token: string): any {
         //if(origin == "validate"){
         this.setAccessToken(token)
-        return this.http.get(BASE_URL + this.API_VALIDATE_TOKEN + '/' + token, {
-            responseType: 'text'
-        })
+        return this.http.get(
+            this.BASE_URL + this.API_VALIDATE_TOKEN + '/' + token,
+            {
+                responseType: 'text'
+            }
+        )
         //}
         /*
          if ((origin = 'verify')) {
