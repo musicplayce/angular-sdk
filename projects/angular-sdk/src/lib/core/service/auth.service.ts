@@ -234,6 +234,12 @@ export class AuthService {
                 'refresh-token=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=[something];'
         }
     }
+
+    /**
+     * Return AuthResponse message with null values
+     *
+     * @returns {Observable<AuthResponse>} as an observable with null authresponse message
+     */
     public signout(): Observable<AuthResponse> {
         return this.http
             .get<AuthResponse>(this.BASE_URL + this.API_SIGNOUT)
