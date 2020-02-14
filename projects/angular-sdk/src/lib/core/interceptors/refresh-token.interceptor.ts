@@ -61,6 +61,7 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
                     )
                 }),
                 catchError(() => {
+                    this.isRefreshing = false
                     return throwError(err)
                 })
             )
