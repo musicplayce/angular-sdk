@@ -15,6 +15,8 @@ describe('AuthService', () => {
     let service: AuthService
     let httpMock: HttpTestingController
 
+    const token: string = 'e12125da1123112uyt132132123132115dfa'
+
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [
@@ -40,7 +42,7 @@ describe('AuthService', () => {
         const dummyAuthResponse: AuthResponse = {
             jwt: {
                 iss: '1',
-                token: '1',
+                token: token,
                 refresh_token: '1'
             }
         }
@@ -65,7 +67,7 @@ describe('AuthService', () => {
         const dummyAuthResponse: AuthResponse = {
             jwt: {
                 iss: '1',
-                token: '1',
+                token: token,
                 refresh_token: '1'
             }
         }
@@ -92,12 +94,27 @@ describe('AuthService', () => {
         const email: string = 'jobs@musicplayce.com'
 
         service.recoveryRequest(email).subscribe(retrive => {
-            console.log(retrive)
             expect(retrive).toBe(dummyMessage)
         })
 
         const request = httpMock.expectOne(
             service.BASE_URL + service.API_FORGOT
+        )
+        expect(request.request.method).toBe('POST')
+        request.flush(dummyMessage)
+    })
+
+    it('#resetPassword should return success message', () => {
+        const dummyMessage: string = '{"message":"Password successfully sent"}'
+
+        const password: string = 'user_password'
+
+        service.resetPassword(password).subscribe(retrive => {
+            expect(retrive).toBe(dummyMessage)
+        })
+
+        const request = httpMock.expectOne(
+            service.BASE_URL + service.API_RESET_PASSWORD + '/' + token
         )
         expect(request.request.method).toBe('POST')
         request.flush(dummyMessage)
