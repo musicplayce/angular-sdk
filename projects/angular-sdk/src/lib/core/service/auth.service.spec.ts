@@ -6,9 +6,9 @@ import {
 
 import { AuthService } from './auth.service'
 import { AngularSdkModule } from '../../angular-sdk.module'
-import { AuthResponse } from 'angular-sdk/lib/core/service/models/auth.response.model'
-import { UserAuth } from 'angular-sdk/public-api'
-import { SpotifyAuth } from 'angular-sdk/lib/core/service/models/spotify.auth.model'
+import { AuthResponse } from './models/auth.response.model'
+import { UserAuth } from './models/user.auth.model'
+import { SpotifyAuth } from './models/spotify.auth.model'
 
 describe('AuthService', () => {
     let injector: TestBed
