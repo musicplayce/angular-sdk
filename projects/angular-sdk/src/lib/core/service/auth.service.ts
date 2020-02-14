@@ -130,8 +130,6 @@ export class AuthService {
         body.data = new DataRequest()
         body.data.attributes = user
 
-        console.log(user)
-
         return this.http
             .post<AuthResponse>(this.BASE_URL + this.API_SIGNIN, user)
             .pipe(
@@ -193,6 +191,12 @@ export class AuthService {
         } */
     }
 
+    /**
+     * Returns a successfully message if password can be modified
+     *
+     * @param password new password for forwarding authentication
+     * @returns any message of success
+     */
     public resetPassword(password: string): any {
         let token = this.getAccessToken()
 
