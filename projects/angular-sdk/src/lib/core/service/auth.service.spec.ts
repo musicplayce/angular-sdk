@@ -15,7 +15,9 @@ describe('AuthService', () => {
     let service: AuthService
     let httpMock: HttpTestingController
 
-    const token: string = 'e12125da1123112uyt132132123132115dfa'
+    const iss = '542d3215a13451a123'
+    const access_token: string = 'e12125da1123112uyt132132123132115dfa'
+    const refresh_token: string = 'e12125da1123112uyt132132123132115dfa'
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -39,11 +41,13 @@ describe('AuthService', () => {
     })
 
     it('#login should return jwt tokens', () => {
+        service.setAccessToken('')
+        service.setRefreshToken('')
         const dummyAuthResponse: AuthResponse = {
             jwt: {
-                iss: '1',
-                token: token,
-                refresh_token: '1'
+                iss: iss,
+                token: access_token,
+                refresh_token: refresh_token
             }
         }
 
@@ -54,6 +58,8 @@ describe('AuthService', () => {
 
         service.login(user).subscribe(retrive => {
             expect(retrive).toEqual(dummyAuthResponse)
+            expect(service.getAccessToken()).toBe(access_token)
+            expect(service.getRefreshToken()).toBe(refresh_token)
         })
 
         const request = httpMock.expectOne(
@@ -64,11 +70,13 @@ describe('AuthService', () => {
     })
 
     it('#loginSpotify should return jwt tokens', () => {
+        service.setAccessToken('')
+        service.setRefreshToken('')
         const dummyAuthResponse: AuthResponse = {
             jwt: {
-                iss: '1',
-                token: token,
-                refresh_token: '1'
+                iss: iss,
+                token: access_token,
+                refresh_token: refresh_token
             }
         }
 
@@ -80,6 +88,8 @@ describe('AuthService', () => {
 
         service.loginSpotify(credentials).subscribe(retrive => {
             expect(retrive).toEqual(dummyAuthResponse)
+            expect(service.getAccessToken()).toBe(access_token)
+            expect(service.getRefreshToken()).toBe(refresh_token)
         })
         const request = httpMock.expectOne(
             service.BASE_URL + service.API_SIGNIN_SPOTIFY
@@ -114,9 +124,16 @@ describe('AuthService', () => {
         })
 
         const request = httpMock.expectOne(
-            service.BASE_URL + service.API_RESET_PASSWORD + '/' + token
+            service.BASE_URL + service.API_RESET_PASSWORD + '/' + access_token
         )
         expect(request.request.method).toBe('POST')
         request.flush(dummyMessage)
+    })
+
+    it('#clearAllTokens shoud reset', () => {
+        service.setAccessToken(access_token)
+        service.clearAllTokens()
+        expect(service.getAccessToken()).toBeNull()
+        service.setAccessToken(access_token)
     })
 })
