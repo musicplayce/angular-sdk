@@ -14,7 +14,7 @@ import { encode } from 'utf8'
 import { SHA256 } from 'crypto-js'
 import { tap } from 'rxjs/operators'
 
-import { BASE_URL } from '../../angular-sdk.module'
+import { BASE_URL, COOKIE_DOMAIN } from '../../angular-sdk.module'
 
 @Injectable({
     providedIn: 'root'
@@ -23,6 +23,8 @@ export class AuthService {
     cachedRequests: Array<HttpRequest<any>> = []
     jwtHelper = new JwtHelperService()
     public BASE_URL: string
+    public COOKIE_DOMAIN: string
+
     API_SIGNIN = environment.SIGNIN
     API_SIGNOUT = environment.SIGNOUT
     API_REFRESH = environment.REFRESH
@@ -31,13 +33,14 @@ export class AuthService {
     API_RESET_PASSWORD = environment.RESET_PASSWORD
     API_VERIFY_SIGNUP_TOKEN = environment.VERIFY_SIGNUP_TOKEN
     API_SIGNIN_SPOTIFY = environment.SIGNIN_SPOTIFY
-    COOKIE_DOMAIN = environment.COOKIE_DOMAIN
     SPOTIFY_REDIRECT_URI = environment.SPOTIFY_REDIRECT_URI
     constructor(
         @Inject(BASE_URL) base_url_injected: string,
+        @Inject(COOKIE_DOMAIN) cookie_domain: string,
         private http: HttpClient
     ) {
         this.BASE_URL = base_url_injected
+        this.COOKIE_DOMAIN = cookie_domain
     }
 
     public isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
@@ -60,7 +63,7 @@ export class AuthService {
             token,
             1,
             0,
-            environment.COOKIE_DOMAIN,
+            this.COOKIE_DOMAIN,
             environment.COOKIE_SECURE
         )
     }
@@ -77,7 +80,7 @@ export class AuthService {
             token,
             0,
             90,
-            environment.COOKIE_DOMAIN,
+            this.COOKIE_DOMAIN,
             environment.COOKIE_SECURE
         )
     }
@@ -206,6 +209,10 @@ export class AuthService {
             { responseType: 'text' }
         )
     }
+
+    /**
+     * Should delete access and refresh token from cookies
+     */
     public clearAllTokens() {
         CookieUtil.createCookie('access-token', '', 0, -120, this.COOKIE_DOMAIN)
         localStorage.setItem('access-token', '')
@@ -217,6 +224,15 @@ export class AuthService {
             this.COOKIE_DOMAIN
         )
         localStorage.setItem('refresh-token', '')
+
+        if (this.getAccessToken()) {
+            document.cookie =
+                'access-token=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=[something];'
+        }
+        if (this.getRefreshToken()) {
+            document.cookie =
+                'refresh-token=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=[something];'
+        }
     }
     public signout(): Observable<AuthResponse> {
         return this.http
