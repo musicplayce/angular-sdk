@@ -34,6 +34,7 @@ export class AuthService {
     API_VERIFY_SIGNUP_TOKEN = environment.VERIFY_SIGNUP_TOKEN
     API_SIGNIN_SPOTIFY = environment.SIGNIN_SPOTIFY
     SPOTIFY_REDIRECT_URI = environment.SPOTIFY_REDIRECT_URI
+
     constructor(
         @Inject(BASE_URL) base_url_injected: string,
         @Inject(COOKIE_DOMAIN) cookie_domain: string,
@@ -121,7 +122,7 @@ export class AuthService {
      * Returns with tokens from a new authentication
      *
      * @param user has username and password not encrypted
-     * @returns {Observable<AuthResponse>} an observable with tokens in AuthResponse model message
+     * @returns Observable<AuthResponse> an observable with tokens in AuthResponse model message
      */
     public login(user: UserAuth): Observable<AuthResponse> {
         let passUtf8 = encode(user.password)
@@ -147,7 +148,7 @@ export class AuthService {
      * Returns with tokens from a new authentication
      *
      * @param credentials has code redirect_url and device_token
-     * @returns {Observable<AuthResponse>} an observable with tokens in AuthResponse model message
+     * @returns Observable<AuthResponse> an observable with tokens in AuthResponse model message
      */
     public loginSpotify(credentials: SpotifyAuth): Observable<AuthResponse> {
         return this.http
@@ -243,7 +244,7 @@ export class AuthService {
     /**
      * Return AuthResponse message with null values
      *
-     * @returns {Observable<AuthResponse>} as an observable with null authresponse message
+     * @returns Observable<AuthResponse> as an observable with null authresponse message
      */
     public signout(): Observable<AuthResponse> {
         return this.http
