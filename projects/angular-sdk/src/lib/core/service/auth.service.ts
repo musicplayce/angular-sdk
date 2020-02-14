@@ -47,15 +47,6 @@ export class AuthService {
         false
     )
 
-    public collectFailedRequest(request): void {
-        this.cachedRequests.push(request)
-    }
-
-    public retryFailedRequests(): void {
-        // retry the requests. this method can
-        // be called after the token is refreshed
-    }
-
     public setAccessToken(token: string): void {
         localStorage.setItem('access-token', token)
         CookieUtil.createCookie(
@@ -90,10 +81,18 @@ export class AuthService {
         return refresh_token
     }
 
+    /**
+     * Returns logged user's id
+     */
     public getUserId(): string {
         return localStorage.getItem('iss')
     }
 
+    /**
+     * Set logged user's id
+     *
+     * @param userId user's id
+     */
     public setUserId(userId: string) {
         localStorage.setItem('iss', userId)
     }
@@ -176,22 +175,28 @@ export class AuthService {
         })
     }
 
+    /**
+     * Return successfully message whether token is valid
+     *
+     * @param origin checking's type
+     * @param token access token
+     */
     public verifyToken(origin: string, token: string): any {
-        //if(origin == "validate"){
-        this.setAccessToken(token)
-        return this.http.get(
-            this.BASE_URL + this.API_VALIDATE_TOKEN + '/' + token,
-            {
-                responseType: 'text'
-            }
-        )
-        //}
-        /*
-         if ((origin = 'verify')) {
-            return this.http.get(API_VERIFY_SIGNUP_TOKEN + '/' + token, {
+        if (origin == 'validate') {
+            this.setAccessToken(token)
+            return this.http.get(
+                this.BASE_URL + this.API_VALIDATE_TOKEN + '/' + token,
+                {
+                    responseType: 'text'
+                }
+            )
+        }
+
+        if (origin == 'verify') {
+            return this.http.get(this.API_VERIFY_SIGNUP_TOKEN + '/' + token, {
                 responseType: 'text'
             })
-        } */
+        }
     }
 
     /**
@@ -245,7 +250,7 @@ export class AuthService {
             .get<AuthResponse>(this.BASE_URL + this.API_SIGNOUT)
             .pipe(
                 tap(resp => {
-                    if (resp.jwt.iss == null || resp.jwt.token == null)
+                    if (resp.jwt.iss == null && resp.jwt.token == null)
                         this.clearAllTokens()
                 })
             )
