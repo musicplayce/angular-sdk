@@ -85,4 +85,21 @@ describe('AuthService', () => {
         expect(request.request.method).toBe('POST')
         request.flush(dummyAuthResponse)
     })
+
+    it('#recoveryRequest should return success message', () => {
+        const dummyMessage: string = '{"message":"Email successfully sent"}'
+
+        const email: string = 'jobs@musicplayce.com'
+
+        service.recoveryRequest(email).subscribe(retrive => {
+            console.log(retrive)
+            expect(retrive).toBe(dummyMessage)
+        })
+
+        const request = httpMock.expectOne(
+            service.BASE_URL + service.API_FORGOT
+        )
+        expect(request.request.method).toBe('POST')
+        request.flush(dummyMessage)
+    })
 })
