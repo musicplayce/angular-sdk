@@ -40,6 +40,11 @@ describe('AuthService', () => {
         expect(service).toBeTruthy()
     })
 
+    it('#getUserId should return iss valid', () => {
+        service.setUserId(iss)
+        expect(service.getUserId()).toBe(iss)
+    })
+
     it('#login should return jwt tokens', () => {
         service.setAccessToken('')
         service.setRefreshToken('')
@@ -164,5 +169,43 @@ describe('AuthService', () => {
         request.flush(dummyAuthResponse)
         service.setAccessToken(access_token)
         service.setRefreshToken(refresh_token)
+    })
+    it('#signout should retrive one value not null in authresponse values', () => {
+        service.setAccessToken(access_token)
+        service.setRefreshToken(refresh_token)
+
+        const dummyAuthResponseError: AuthResponse = {
+            jwt: {
+                iss: null,
+                token: ''
+            }
+        }
+
+        service.signout().subscribe(retrive => {
+            expect(retrive).toEqual(dummyAuthResponseError)
+            expect(service.getAccessToken()).toBe(access_token)
+            expect(service.getRefreshToken()).toBe(refresh_token)
+        })
+
+        const request = httpMock.expectOne(
+            service.BASE_URL + service.API_SIGNOUT
+        )
+        expect(request.request.method).toBe('GET')
+        request.flush(dummyAuthResponseError)
+        service.setAccessToken(access_token)
+        service.setRefreshToken(refresh_token)
+    })
+
+    it('#verifyToken should return successfully message in validate mode', () => {
+        const dummyMessage: string = '{"message":"Email successfully sent"}'
+        service.verifyToken('validate', access_token).subscribe(retrive => {
+            expect(retrive).toBe(dummyMessage)
+        })
+
+        const request = httpMock.expectOne(
+            service.BASE_URL + service.API_VALIDATE_TOKEN + '/' + access_token
+        )
+        expect(request.request.method).toBe('GET')
+        request.flush(dummyMessage)
     })
 })
