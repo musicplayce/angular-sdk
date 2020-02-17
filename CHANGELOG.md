@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/musicplayce/angular-sdk/compare/v1.0.2...v1.1.0) (2020-02-17)
+
+
+### Features
+
+* **authservice:** add forgot and singup method ([80dd294](https://github.com/musicplayce/angular-sdk/commit/80dd29415aa3c99da07353f48818fdb08fa6fd28))
+
 ## [1.0.2](https://github.com/musicplayce/angular-sdk/compare/v1.0.1...v1.0.2) (2020-02-14)
 
 
