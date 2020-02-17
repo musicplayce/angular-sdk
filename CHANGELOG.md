@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/musicplayce/angular-sdk/compare/v1.1.1...v1.1.2) (2020-02-17)
+
+
+### Bug Fixes
+
+* **authservice:** change username to name in login's params ([b981263](https://github.com/musicplayce/angular-sdk/commit/b981263e7c9741d3d0b3790923d756d1f6067c93))
+
 ## [1.1.1](https://github.com/musicplayce/angular-sdk/compare/v1.1.0...v1.1.1) (2020-02-17)
 
 
