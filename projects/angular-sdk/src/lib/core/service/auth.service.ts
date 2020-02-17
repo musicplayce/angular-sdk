@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core'
 import { JwtHelperService } from '@auth0/angular-jwt'
 import { HttpRequest, HttpClient } from '@angular/common/http'
-import { BehaviorSubject, Observable } from 'rxjs'
+import { Observable, of } from 'rxjs'
 import { ResetSendModel } from './models/reset.send.model'
 import { UserAuth } from './models/user.auth.model'
 import { SpotifyAuth } from './models/spotify.auth.model'
@@ -12,7 +12,7 @@ import { RefreshSendModel } from './models/refresh.send.model'
 import { CookieUtil } from '../util/cookie.util'
 import { encode } from 'utf8'
 import { SHA256 } from 'crypto-js'
-import { tap } from 'rxjs/operators'
+import { tap, concatMap, map, catchError } from 'rxjs/operators'
 
 import { BASE_URL, COOKIE_DOMAIN } from '../../angular-sdk.module'
 
@@ -44,10 +44,6 @@ export class AuthService {
         this.BASE_URL = base_url_injected
         this.COOKIE_DOMAIN = cookie_domain
     }
-
-    public isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
-        false
-    )
 
     public setAccessToken(token: string): void {
         localStorage.setItem('access-token', token)
@@ -110,13 +106,27 @@ export class AuthService {
             )
     }
 
-    public isAuthenticated(): boolean {
+    /**
+     * Return an observable of boolean value which means if refresh token expired
+     */
+    public isAuthenticated(): Observable<boolean> {
         // get the token
-        const token = this.getAccessToken()
+        const refresh_token = this.getRefreshToken()
         // return a boolean reflecting
         // whether or not the token is expired
-        this.isLoggedIn.next(!this.jwtHelper.isTokenExpired(token))
-        return !this.jwtHelper.isTokenExpired(token)
+        return new Observable<boolean>(subscriber => {
+            subscriber.next(!this.jwtHelper.isTokenExpired(refresh_token))
+        }).pipe(
+            tap((val: boolean) => {
+                if (!val) throw 'Internal expired'
+            }),
+            concatMap(() =>
+                this.verifyToken('validate', this.getRefreshToken()).pipe(
+                    map(() => true)
+                )
+            ),
+            catchError(() => of(false))
+        )
     }
 
     /**
@@ -221,9 +231,9 @@ export class AuthService {
      * @param origin checking's type
      * @param token access token
      */
-    public verifyToken(origin: string, token: string): any {
+    public verifyToken(origin: string, token: string): Observable<string> {
         if (origin == 'validate') {
-            this.setAccessToken(token)
+            //this.setAccessToken(token)
             return this.http.get(
                 this.BASE_URL + this.API_VALIDATE_TOKEN + '/' + token,
                 {
