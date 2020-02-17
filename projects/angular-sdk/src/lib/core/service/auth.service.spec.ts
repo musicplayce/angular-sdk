@@ -18,6 +18,7 @@ describe('AuthService', () => {
     const iss = '542d3215a13451a123'
     const access_token: string = 'e12125da1123112uyt132132123132115dfa'
     const refresh_token: string = 'e12125da1123112uyt132132123132115dfa'
+    const email: string = 'jobs@musicplayce.com'
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -105,8 +106,6 @@ describe('AuthService', () => {
 
     it('#recoveryRequest should return success message', () => {
         const dummyMessage: string = '{"message":"Email successfully sent"}'
-
-        const email: string = 'jobs@musicplayce.com'
 
         service.recoveryRequest(email).subscribe(retrive => {
             expect(retrive).toBe(dummyMessage)
@@ -206,6 +205,45 @@ describe('AuthService', () => {
             service.BASE_URL + service.API_VALIDATE_TOKEN + '/' + access_token
         )
         expect(request.request.method).toBe('GET')
+        request.flush(dummyMessage)
+    })
+
+    it('#signup should return authresponse message', () => {
+        const dummyAuthResponse: AuthResponse = {
+            jwt: {
+                iss: iss,
+                token: access_token,
+                refresh_token: refresh_token
+            }
+        }
+
+        service
+            .signup('jobsmusicplayce', email, 'test_pass', 1, 1)
+            .subscribe(retrive => {
+                expect(retrive).toEqual(dummyAuthResponse)
+
+                expect(retrive).toEqual(dummyAuthResponse)
+                expect(service.getAccessToken()).toBe(access_token)
+                expect(service.getRefreshToken()).toBe(refresh_token)
+            })
+
+        const request = httpMock.expectOne(
+            service.BASE_URL + service.API_SIGNUP
+        )
+        expect(request.request.method).toBe('POST')
+        request.flush(dummyAuthResponse)
+    })
+
+    it('#forgot should return a successfully message', () => {
+        const dummyMessage: string = '{"message":"Email successfully sent"}'
+        service.forgot(email).subscribe(retrive => {
+            expect(retrive).toBe(dummyMessage)
+        })
+
+        const request = httpMock.expectOne(
+            service.BASE_URL + service.API_FORGOT
+        )
+        expect(request.request.method).toBe('POST')
         request.flush(dummyMessage)
     })
 })
