@@ -178,14 +178,14 @@ export class AuthService {
     /**
      * Returns AuthResponse with tokens and iss whether user have been created.
      *
-     * @param username required
+     * @param name required
      * @param email required
      * @param password required without encrypted
      * @param accepted_policy optional
      * @param accepted_terms optional
      */
     public signup(
-        username: string,
+        name: string,
         email: string,
         password: string,
         accepted_policy?: number,
@@ -196,7 +196,7 @@ export class AuthService {
         password = passEncode.toString()
 
         let params = {
-            username,
+            name,
             email,
             password,
             accepted_policy,
