@@ -23,11 +23,23 @@ export class AngularSdkModule {
                 base_url = 'https://api-sandbox.musicplayce.com'
                 cookie_domain = '.musicplayce.com'
                 break
-            case 'dev':
-                base_url = 'http://localhost:3000'
-                cookie_domain = 'localhost'
+            case 'prod':
+                base_url = 'http://api.musicplayce.com'
+                cookie_domain = '.musicplayce.com'
                 break
             case 'test':
+                base_url = 'https://localhost:8000'
+                cookie_domain = 'localhost'
+                break
+            case 'test-beta':
+                base_url = 'https://api-beta.musicplayce.com'
+                cookie_domain = 'localhost'
+                break
+            case 'test-sandbox':
+                base_url = 'https://api-sandbox.musicplayce.com'
+                cookie_domain = 'localhost'
+                break
+            case 'test-prod':
                 base_url = 'https://api.musicplayce.com'
                 cookie_domain = 'localhost'
                 break
