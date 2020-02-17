@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/musicplayce/angular-sdk/compare/v1.1.0...v1.1.1) (2020-02-17)
+
+
+### Bug Fixes
+
+* **authservice:** fix isAuthenticated check refresh token expiration ([0ada05a](https://github.com/musicplayce/angular-sdk/commit/0ada05ac72c284e1050ae07211cbae9f056b786a))
+
 # [1.1.0](https://github.com/musicplayce/angular-sdk/compare/v1.0.2...v1.1.0) (2020-02-17)
 
 
