@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/musicplayce/angular-sdk/compare/v1.0.1...v1.0.2) (2020-02-14)
+
+
+### Bug Fixes
+
+* **authservice:** annotation in docs removed ([29058a1](https://github.com/musicplayce/angular-sdk/commit/29058a1d13e499585ad49c945d753121d83330d3))
+* **refresh-token:** allow multiple unauthorized access know the error ([1f550ac](https://github.com/musicplayce/angular-sdk/commit/1f550acf2735583137c4298a33845bfe720ada21))
+
 ## [1.0.1](https://github.com/musicplayce/angular-sdk/compare/v1.0.0...v1.0.1) (2020-02-14)
 
 

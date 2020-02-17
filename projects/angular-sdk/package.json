@@ -1,14 +1,14 @@
 {
-    "name": "@musicplayce/angular-sdk",
-    "version": "1.0.0",
-    "peerDependencies": {
-        "@angular/common": "^8.2.14",
-        "@angular/core": "^8.2.14",
-        "angular-crypto-js": "^1.0.7",
-        "utf8": "^3.0.0"
-    },
-    "devDependencies": {
-        "@types/crypto-js": "^3.1.43",
-        "@types/utf8": "^2.1.6"
-    }
+  "name": "@musicplayce/angular-sdk",
+  "version": "1.0.2",
+  "peerDependencies": {
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14",
+    "angular-crypto-js": "^1.0.7",
+    "utf8": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^3.1.43",
+    "@types/utf8": "^2.1.6"
+  }
 }
