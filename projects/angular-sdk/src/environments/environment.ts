@@ -17,7 +17,7 @@ export const environment = {
     // AUTH
     PROFILE: API_BASE + '/auth/me',
     SIGNIN: API_BASE_V2 + '/auth/signin',
-    SIGNUP: API_BASE + '/auth/signup',
+    SIGNUP: API_BASE_V2 + '/auth/signup',
     SIGNOUT: API_BASE + '/auth/signout',
     SIGNIN_SPOTIFY: API_BASE + '/auth/social/spotify',
     REFRESH: API_BASE_V2 + '/auth/refresh',
