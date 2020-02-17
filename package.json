@@ -1,6 +1,6 @@
 {
   "name": "@musicplayce/angular-sdk",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A angular SDK to be used in musicplayce's web projects",
   "author": "Musicplayce",
   "repository": {
