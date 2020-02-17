@@ -25,6 +25,7 @@ export class AuthService {
     public BASE_URL: string
     public COOKIE_DOMAIN: string
 
+    API_SIGNUP = environment.SIGNUP
     API_SIGNIN = environment.SIGNIN
     API_SIGNOUT = environment.SIGNOUT
     API_REFRESH = environment.REFRESH
@@ -165,6 +166,44 @@ export class AuthService {
     }
 
     /**
+     * Returns AuthResponse with tokens and iss whether user have been created.
+     *
+     * @param username required
+     * @param email required
+     * @param password required without encrypted
+     * @param accepted_policy optional
+     * @param accepted_terms optional
+     */
+    public signup(
+        username: string,
+        email: string,
+        password: string,
+        accepted_policy?: number,
+        accepted_terms?: number
+    ): Observable<AuthResponse> {
+        let passUtf8 = encode(password)
+        let passEncode = SHA256(passUtf8)
+        password = passEncode.toString()
+
+        let params = {
+            username,
+            email,
+            password,
+            accepted_policy,
+            accepted_terms
+        }
+
+        return this.http
+            .post<AuthResponse>(this.BASE_URL + this.API_SIGNUP, params)
+            .pipe(
+                tap(resp => {
+                    this.setRefreshToken(resp.jwt.refresh_token)
+                    this.setAccessToken(resp.jwt.token)
+                })
+            )
+    }
+
+    /**
      * Returns a successfully message if email was sent
      *
      * @param email of profile who wants recovery password
@@ -255,5 +294,13 @@ export class AuthService {
                         this.clearAllTokens()
                 })
             )
+    }
+
+    /**
+     * Returns a successfully message if email exists
+     * @param email that will be sent a password recovery token
+     */
+    public forgot(email: string) {
+        return this.http.post(this.BASE_URL + this.API_FORGOT, { email })
     }
 }
