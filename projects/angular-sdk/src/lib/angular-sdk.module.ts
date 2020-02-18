@@ -11,43 +11,7 @@ export const COOKIE_DOMAIN = new InjectionToken<string>('CO0KIE_DOMAIN')
     exports: [CoreModule]
 })
 export class AngularSdkModule {
-    static forRoot(env_str: string) {
-        let base_url: string
-        let cookie_domain: string
-        switch (env_str) {
-            case 'beta':
-                base_url = 'https://api-beta.musicplayce.com'
-                cookie_domain = '.musicplayce.com'
-                break
-            case 'sandbox':
-                base_url = 'https://api-sandbox.musicplayce.com'
-                cookie_domain = '.musicplayce.com'
-                break
-            case 'prod':
-                base_url = 'http://api.musicplayce.com'
-                cookie_domain = '.musicplayce.com'
-                break
-            case 'test':
-                base_url = 'https://localhost:8000'
-                cookie_domain = 'localhost'
-                break
-            case 'test-beta':
-                base_url = 'https://api-beta.musicplayce.com'
-                cookie_domain = 'localhost'
-                break
-            case 'test-sandbox':
-                base_url = 'https://api-sandbox.musicplayce.com'
-                cookie_domain = 'localhost'
-                break
-            case 'test-prod':
-                base_url = 'https://api.musicplayce.com'
-                cookie_domain = 'localhost'
-                break
-            default:
-                base_url = 'https://api.musicplayce.com'
-                cookie_domain = '.musicplayce.com'
-                break
-        }
+    static forRoot(base_url: string, cookie_domain) {
         return {
             ngModule: AngularSdkModule,
             providers: [

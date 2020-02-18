@@ -24,7 +24,10 @@ describe('AuthService', () => {
         TestBed.configureTestingModule({
             imports: [
                 HttpClientTestingModule,
-                AngularSdkModule.forRoot('test')
+                AngularSdkModule.forRoot(
+                    'https://api-beta.musicplayce.com',
+                    'localhost'
+                )
             ],
             providers: [AuthService]
         })
