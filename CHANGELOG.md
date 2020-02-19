@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/musicplayce/angular-sdk/compare/v1.1.2...v1.1.3) (2020-02-18)
+
+
+### Bug Fixes
+
+* **angular-sdk:** fix production flags by two inject token ([78981e0](https://github.com/musicplayce/angular-sdk/commit/78981e06bcb13b4e485c7d65618f0c45f56deb97))
+
 ## [1.1.2](https://github.com/musicplayce/angular-sdk/compare/v1.1.1...v1.1.2) (2020-02-17)
 
 
