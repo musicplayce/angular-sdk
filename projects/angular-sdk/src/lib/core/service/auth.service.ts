@@ -10,10 +10,8 @@ import { ApiRequest, DataRequest } from './models/request.base.model'
 import { environment } from '../../../environments/environment'
 import { RefreshSendModel } from './models/refresh.send.model'
 import { CookieUtil } from '../util/cookie.util'
-import { encode } from 'utf8'
 import { sha256 } from 'js-sha256'
 import { tap, concatMap, map, catchError } from 'rxjs/operators'
-
 import { BASE_URL, COOKIE_DOMAIN } from '../../angular-sdk.module'
 
 @Injectable({

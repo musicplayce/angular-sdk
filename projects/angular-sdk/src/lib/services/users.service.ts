@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs'
+import { Observable, defer } from 'rxjs'
 import {
     UserListModel,
     UserRetriveModel,
@@ -12,6 +12,7 @@ import {
     UserListPlaylistsModel,
     UserSubscriptionModel
 } from '../models/user.model'
+import { publishReplay, refCount, take } from 'rxjs/operators'
 
 @Injectable({
     providedIn: 'root'
@@ -46,6 +47,12 @@ export class UsersService {
         )
     }
 
+    private retrive$(id: string): Observable<UserRetriveModel> {
+        return defer(() =>
+            this.http.get<UserRetriveModel>(`${this.USERS_URL}/${id}`)
+        ).pipe(publishReplay(1, 1000), refCount(), take(1))
+    }
+
     /**
      * Returns a single resolved profile.
      *
@@ -53,7 +60,7 @@ export class UsersService {
      * @returns {Observable<UserRetriveModel>} as new observable from a single profile
      */
     public retrive(id: string): Observable<UserRetriveModel> {
-        return this.http.get<UserRetriveModel>(`${this.USERS_URL}/${id}`)
+        return this.retrive$(id)
     }
 
     /**
