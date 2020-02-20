@@ -50,6 +50,7 @@
     "@angular/router": "~8.2.9",
     "@auth0/angular-jwt": "^3.0.1",
     "angular-crypto-js": "^1.0.7",
+    "js-sha256": "^0.9.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "utf8": "^3.0.0",

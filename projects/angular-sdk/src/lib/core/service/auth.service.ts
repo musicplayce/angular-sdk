@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment'
 import { RefreshSendModel } from './models/refresh.send.model'
 import { CookieUtil } from '../util/cookie.util'
 import { encode } from 'utf8'
-import { SHA256 } from 'crypto-js'
+import { sha256 } from 'js-sha256'
 import { tap, concatMap, map, catchError } from 'rxjs/operators'
 
 import { BASE_URL, COOKIE_DOMAIN } from '../../angular-sdk.module'
@@ -136,8 +136,7 @@ export class AuthService {
      * @returns Observable<AuthResponse> an observable with tokens in AuthResponse model message
      */
     public login(user: UserAuth): Observable<AuthResponse> {
-        let passUtf8 = encode(user.password)
-        let passEncode = SHA256(passUtf8)
+        let passEncode = sha256(user.password)
         user.password = passEncode.toString()
         let body = new ApiRequest()
 
@@ -191,8 +190,7 @@ export class AuthService {
         accepted_policy?: number,
         accepted_terms?: number
     ): Observable<AuthResponse> {
-        let passUtf8 = encode(password)
-        let passEncode = SHA256(passUtf8)
+        let passEncode = sha256(password)
         password = passEncode.toString()
 
         let params = {
