@@ -1,3 +1,12 @@
+## [1.1.4](https://github.com/musicplayce/angular-sdk/compare/v1.1.3...v1.1.4) (2020-02-20)
+
+
+### Bug Fixes
+
+* **angular-sdk:** remove angular-sdk.service from public-api.ts ([abda392](https://github.com/musicplayce/angular-sdk/commit/abda3927822cf827b5803b0b43fc2671715e5e49))
+* **js-sha256:** change crypt password method ([d5bc95a](https://github.com/musicplayce/angular-sdk/commit/d5bc95a18e27d52437c13c42899ab062323acf29))
+* **sha256:** change package for encrypt password ([06972aa](https://github.com/musicplayce/angular-sdk/commit/06972aad598b9b4180f0af7ff1e85526459d49d2))
+
 ## [1.1.3](https://github.com/musicplayce/angular-sdk/compare/v1.1.2...v1.1.3) (2020-02-18)
 
 
