@@ -56,7 +56,8 @@ export class AuthService {
     }
 
     public getAccessToken(): string {
-        const access_token = CookieUtil.readCookie('access-token')
+        let access_token = localStorage.getItem('access-token')
+        if (!access_token) access_token = CookieUtil.readCookie('access-token')
         return access_token
     }
 
@@ -73,7 +74,9 @@ export class AuthService {
     }
 
     public getRefreshToken(): string {
-        const refresh_token = CookieUtil.readCookie('refresh-token')
+        let refresh_token = localStorage.getItem('refresh-token')
+        if (!refresh_token)
+            refresh_token = CookieUtil.readCookie('refresh-token')
         return refresh_token
     }
 
