@@ -1,3 +1,11 @@
+## [1.1.5](https://github.com/musicplayce/angular-sdk/compare/v1.1.4...v1.1.5) (2020-02-24)
+
+
+### Bug Fixes
+
+* **authservice:** get localStorage before cookie ([0b4e400](https://github.com/musicplayce/angular-sdk/commit/0b4e4003ed02fa66f88cdb05b4fe773154e28fcc))
+* **authservice:** resetPassword method need its token ([4901802](https://github.com/musicplayce/angular-sdk/commit/49018027bd3fd6515cc0552d87438898e1480f06))
+
 ## [1.1.4](https://github.com/musicplayce/angular-sdk/compare/v1.1.3...v1.1.4) (2020-02-20)
 
 
