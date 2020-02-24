@@ -251,9 +251,7 @@ export class AuthService {
      * @param password new password for forwarding authentication
      * @returns any message of success
      */
-    public resetPassword(password: string): any {
-        let token = this.getAccessToken()
-
+    public resetPassword(password: string, token: string): any {
         return this.http.post(
             this.BASE_URL + this.API_RESET_PASSWORD + '/' + token,
             { password: password },
