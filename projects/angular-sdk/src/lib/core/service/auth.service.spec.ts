@@ -126,7 +126,7 @@ describe('AuthService', () => {
 
         const password: string = 'user_password'
 
-        service.resetPassword(password).subscribe(retrive => {
+        service.resetPassword(password, refresh_token).subscribe(retrive => {
             expect(retrive).toBe(dummyMessage)
         })
 
