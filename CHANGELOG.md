@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/musicplayce/angular-sdk/compare/v1.1.5...v1.1.6) (2020-02-26)
+
+
+### Bug Fixes
+
+* **refreshtoken:** fix resp for second call ([8e07e33](https://github.com/musicplayce/angular-sdk/commit/8e07e33e8055ed231a0320688480649040290c72))
+
 ## [1.1.5](https://github.com/musicplayce/angular-sdk/compare/v1.1.4...v1.1.5) (2020-02-24)
 
 
