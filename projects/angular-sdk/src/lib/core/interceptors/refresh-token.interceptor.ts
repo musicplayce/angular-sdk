@@ -70,11 +70,9 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
                 filter(resp => resp != null),
                 take(1),
                 switchMap(resp => {
-                    return next.handle(
-                        this.addAccessToken(request, resp.jwt.token)
-                    )
+                    return next.handle(this.addAccessToken(request, resp))
                 }),
-                catchError(() => {
+                catchError(e => {
                     return throwError(err)
                 })
             )
