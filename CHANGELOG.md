@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/musicplayce/angular-sdk/compare/v1.1.6...v1.1.7) (2020-03-04)
+
+
+### Bug Fixes
+
+* **authservice:** change get access and refresh token for marcos ([671306d](https://github.com/musicplayce/angular-sdk/commit/671306d2561446ab488822f348dfbf8766f8d8e4))
+
 ## [1.1.6](https://github.com/musicplayce/angular-sdk/compare/v1.1.5...v1.1.6) (2020-02-26)
 
 
