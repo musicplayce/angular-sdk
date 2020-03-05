@@ -22,6 +22,7 @@ export class AuthService {
     jwtHelper = new JwtHelperService()
     public BASE_URL: string
     public COOKIE_DOMAIN: string
+    public SPOTIFY_REDIRECT_URI: string
 
     API_SIGNUP = environment.SIGNUP
     API_SIGNIN = environment.SIGNIN
@@ -32,15 +33,16 @@ export class AuthService {
     API_RESET_PASSWORD = environment.RESET_PASSWORD
     API_VERIFY_SIGNUP_TOKEN = environment.VERIFY_SIGNUP_TOKEN
     API_SIGNIN_SPOTIFY = environment.SIGNIN_SPOTIFY
-    SPOTIFY_REDIRECT_URI = environment.SPOTIFY_REDIRECT_URI
 
     constructor(
         @Inject(BASE_URL) base_url_injected: string,
         @Inject(COOKIE_DOMAIN) cookie_domain: string,
+        @Inject(SPOTIFY_REDIRECT_URI) spotify_redirect_uri: string,
         private http: HttpClient
     ) {
         this.BASE_URL = base_url_injected
         this.COOKIE_DOMAIN = cookie_domain
+        this.SPOTIFY_REDIRECT_URI = spotify_redirect_uri
     }
 
     public setAccessToken(token: string): void {
