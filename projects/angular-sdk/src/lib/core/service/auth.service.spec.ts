@@ -26,7 +26,8 @@ describe('AuthService', () => {
                 HttpClientTestingModule,
                 AngularSdkModule.forRoot(
                     'https://api-beta.musicplayce.com',
-                    'localhost'
+                    'localhost',
+                    'http://localhost:4200/auth/spotify'
                 )
             ],
             providers: [AuthService]

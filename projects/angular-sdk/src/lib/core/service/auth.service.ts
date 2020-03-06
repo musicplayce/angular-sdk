@@ -12,7 +12,11 @@ import { RefreshSendModel } from './models/refresh.send.model'
 import { CookieUtil } from '../util/cookie.util'
 import { sha256 } from 'js-sha256'
 import { tap, concatMap, map, catchError } from 'rxjs/operators'
-import { BASE_URL, COOKIE_DOMAIN } from '../../angular-sdk.module'
+import {
+    BASE_URL,
+    COOKIE_DOMAIN,
+    SPOTIFY_REDIRECT_URI
+} from '../../angular-sdk.module'
 
 @Injectable({
     providedIn: 'root'

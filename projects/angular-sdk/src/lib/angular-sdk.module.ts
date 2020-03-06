@@ -16,7 +16,7 @@ export const SPOTIFY_REDIRECT_URI = new InjectionToken<string>(
 export class AngularSdkModule {
     static forRoot(
         base_url: string,
-        cookie_domain,
+        cookie_domain: string,
         spotify_redirect_uri: string
     ) {
         return {
