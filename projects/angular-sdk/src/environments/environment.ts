@@ -19,7 +19,7 @@ export const environment = {
     SIGNIN: API_BASE_V2 + '/auth/signin',
     SIGNUP: API_BASE_V2 + '/auth/signup',
     SIGNOUT: API_BASE + '/auth/signout',
-    SIGNIN_SPOTIFY: API_BASE + '/auth/social/spotify',
+    SIGNIN_SPOTIFY: API_BASE_V2 + '/auth/social/spotify',
     REFRESH: API_BASE_V2 + '/auth/refresh',
     FORGOT: API_BASE + '/auth/forgot',
     VALIDATE_TOKEN: API_BASE + '/auth/validate',
