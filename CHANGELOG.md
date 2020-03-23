@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/musicplayce/angular-sdk/compare/v1.1.7...v1.2.0) (2020-03-06)
+
+
+### Bug Fixes
+
+* **environment:** spotify login using api v2 ([d1be780](https://github.com/musicplayce/angular-sdk/commit/d1be78086200484b3d7c847fd628a8f10230c5c1))
+* **redirect_url:** pass redirect_url as injector token ([73cd060](https://github.com/musicplayce/angular-sdk/commit/73cd0607b2c75ab8663daf15aa8674fd106e7177))
+
+
+### Features
+
+* **injectortoken:** add spotify redirect url injectortoken ([f7fac68](https://github.com/musicplayce/angular-sdk/commit/f7fac684f05685cb25985a81569dbb4bdae1015b))
+
 ## [1.1.7](https://github.com/musicplayce/angular-sdk/compare/v1.1.6...v1.1.7) (2020-03-04)
 
 
