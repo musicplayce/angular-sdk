@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/musicplayce/angular-sdk/compare/v1.2.0...v1.3.0) (2020-03-23)
+
+
+### Features
+
+* **subscription.service:** add stripe checkout routines ([1ef9995](https://github.com/musicplayce/angular-sdk/commit/1ef9995016e90264f44f53106789108942a16375))
+* **subscription.service:** add stripe checkout routines ([4c3ae7d](https://github.com/musicplayce/angular-sdk/commit/4c3ae7d34dc98ad9a281082e82c7df64ac4d032b))
+
 # [1.2.0](https://github.com/musicplayce/angular-sdk/compare/v1.1.7...v1.2.0) (2020-03-06)
 
 
