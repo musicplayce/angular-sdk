@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core'
 import { BASE_URL } from '../angular-sdk.module'
-import { environment } from 'angular-sdk/environments/environment'
+import { environment } from '../../environments/environment'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import {
