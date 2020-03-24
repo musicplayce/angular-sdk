@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/musicplayce/angular-sdk/compare/v1.3.0...v1.3.1) (2020-03-24)
+
+
+### Bug Fixes
+
+* **subscription:** api-public refs ([3ec85df](https://github.com/musicplayce/angular-sdk/commit/3ec85df548b2d29ea900b29f3b8b93fe192c61be))
+
 # [1.3.0](https://github.com/musicplayce/angular-sdk/compare/v1.2.0...v1.3.0) (2020-03-23)
 
 
