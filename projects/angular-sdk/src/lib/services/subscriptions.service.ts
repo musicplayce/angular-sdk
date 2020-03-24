@@ -13,6 +13,7 @@ import {
 })
 export class SubscriptionsService {
     public BASE_URL: string
+
     API_STRIPE_SUBSCRIPTION = environment.STRIPE_SUBSCRIPTION
     API_SUBSCRIPTION_PAYMENT_METHOD = environment.SUBSCRIPTION_PAYMENT_METHOD
 
