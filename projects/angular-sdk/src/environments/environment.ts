@@ -34,7 +34,7 @@ export const environment = {
     POSTS: API_BASE + '/posts',
     PLACES: API_BASE + '/places',
 
-    STRIPE_SUBSCRIPTION: API_BASE + '/subscriptions' + '/stripesubscription/',
+    STRIPE_SUBSCRIPTION: API_BASE + '/subscriptions' + '/stripesubscription',
     SUBSCRIPTION_PAYMENT_METHOD: API_BASE + '/subscriptions/paymentmethod',
 
     NO_AUTH_REDIRECT_URL: '',
