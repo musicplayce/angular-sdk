@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/musicplayce/angular-sdk/compare/v1.3.1...v1.3.2) (2020-03-27)
+
+
+### Bug Fixes
+
+* **subscriptions:** fix undue slash in doSubscription ([ffd1360](https://github.com/musicplayce/angular-sdk/commit/ffd1360f4cd001e929ad25da289547d0daba01bc))
+
 ## [1.3.1](https://github.com/musicplayce/angular-sdk/compare/v1.3.0...v1.3.1) (2020-03-24)
 
 
