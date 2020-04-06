@@ -63,7 +63,8 @@ export class SubscriptionsService {
 
     doSubscription(stripe_plan: string, coupon: string): Observable<any> {
         return this.httpClient.post<any>(
-		`${this.BASE_URL + this.API_STRIPE_SUBSCRIPTION}/${stripe_plan}/${coupon}`,
+            `${this.BASE_URL +
+                this.API_STRIPE_SUBSCRIPTION}/${stripe_plan}/${coupon}`,
             null
         )
     }
