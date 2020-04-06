@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/musicplayce/angular-sdk/compare/v1.3.2...v1.4.0) (2020-04-06)
+
+
+### Features
+
+* **subscription:** add coupon on doSubscription route ([ceb75c3](https://github.com/musicplayce/angular-sdk/commit/ceb75c35b27a8a3b7d08318bbf45debdb3609dee))
+* **subscription:** add coupon on doSubscription route ([5a6049f](https://github.com/musicplayce/angular-sdk/commit/5a6049fc71ce0682e4fda73acc7ad9931fdb3c80))
+
 ## [1.3.2](https://github.com/musicplayce/angular-sdk/compare/v1.3.1...v1.3.2) (2020-03-27)
 
 
