@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/musicplayce/angular-sdk/compare/v1.5.0...v1.5.1) (2020-04-13)
+
+
+### Bug Fixes
+
+* **public-ts:** add audition.service ([15ca41b](https://github.com/musicplayce/angular-sdk/commit/15ca41b341fb3cf65a9fa62669753919d12405eb))
+
 # [1.5.0](https://github.com/musicplayce/angular-sdk/compare/v1.4.0...v1.5.0) (2020-04-13)
 
 
