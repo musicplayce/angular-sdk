@@ -11,6 +11,7 @@ import {
 
 import { Observable, defer } from 'rxjs'
 import { publishReplay, refCount, take } from 'rxjs/operators'
+import { CacheHttpService } from './cachehttp.service'
 
 @Injectable({
     providedIn: 'root'
@@ -18,11 +19,12 @@ import { publishReplay, refCount, take } from 'rxjs/operators'
 export class AuditionsService {
     public BASE_URL: string
 
-    public API_AUDITIONS: string
+    private API_AUDITIONS: string
 
     constructor(
         @Inject(BASE_URL) base_url_injected: string,
-        private httpClient: HttpClient
+        private httpClient: HttpClient,
+        private cacheHttp: CacheHttpService
     ) {
         this.BASE_URL = base_url_injected
         this.API_AUDITIONS = base_url_injected + environment.AUDITIONS
@@ -39,21 +41,15 @@ export class AuditionsService {
     public list(
         limit?: number,
         next?: string,
-        page?: number
+        page?: number,
+        timeout: number = 0
     ): Observable<AuditionListModel> {
-        return this.httpClient.get<AuditionListModel>(
+        return this.cacheHttp.get<AuditionListModel>(
             `${this.API_AUDITIONS}?limit=${limit ? limit : ''}&next=${
                 next ? next : ''
-            }&page=${page ? page : ''}`
+            }&page=${page ? page : ''}`,
+            timeout
         )
-    }
-
-    private retrive$(id: string): Observable<AuditionRetrieveModel> {
-        return defer(() =>
-            this.httpClient.get<AuditionRetrieveModel>(
-                `${this.API_AUDITIONS}/${id}`
-            )
-        ).pipe(publishReplay(1, 1000), refCount(), take(1))
     }
 
     /**
@@ -62,8 +58,14 @@ export class AuditionsService {
      * @param string id of audition requested
      * @returns Observable<AuditionRetrieveModel> as new observable from a single audition
      */
-    public retrieve(id: string): Observable<AuditionRetrieveModel> {
-        return this.retrive$(id)
+    public retrieve(
+        id: string,
+        timeout: number = 0
+    ): Observable<AuditionRetrieveModel> {
+        return this.cacheHttp.get<AuditionRetrieveModel>(
+            `${this.API_AUDITIONS}/${id}`,
+            timeout
+        )
     }
 
     /**
@@ -137,7 +139,7 @@ export class AuditionsService {
         id_post: string
     ): Observable<AuditionRetrieveModel> {
         return this.httpClient.post<AuditionRetrieveModel>(
-            `${this.API_AUDITIONS}/${id}/red`,
+            `${this.API_AUDITIONS}/${id}/yellow`,
             {
                 id_post
             }
@@ -155,7 +157,7 @@ export class AuditionsService {
         id_post: string
     ): Observable<AuditionRetrieveModel> {
         return this.httpClient.post<AuditionRetrieveModel>(
-            `${this.API_AUDITIONS}/${id}/red`,
+            `${this.API_AUDITIONS}/${id}/green`,
             {
                 id_post
             }
