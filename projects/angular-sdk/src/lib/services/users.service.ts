@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Observable, defer } from 'rxjs'
 import {
     UserListModel,
     UserRetriveModel,
@@ -12,6 +11,7 @@ import {
     UserListPlaylistsModel,
     UserSubscriptionModel
 } from '../models/user.model'
+import { Observable, defer } from 'rxjs'
 import { publishReplay, refCount, take } from 'rxjs/operators'
 
 @Injectable({

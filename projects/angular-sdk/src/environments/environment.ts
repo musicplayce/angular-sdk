@@ -8,6 +8,8 @@ const API_BASE_V2 = '/v2'
 //const API_BASE = 'http://localhost:8000/v1'
 const API_DATA_BASE = API_BASE + '/data'
 
+const API_AUDITION_BASE = API_BASE + '/auditions'
+
 export const environment = {
     production: false,
 
@@ -60,7 +62,9 @@ export const environment = {
 
     DATA_POLL: API_BASE + '/data/polls/',
     DATA_INDICATION: API_BASE + '/data/indications/',
-    DATA_DASH: API_BASE + '/data/dashboard/'
+    DATA_DASH: API_BASE + '/data/dashboard/',
+    //Audition
+    AUDITIONS: API_AUDITION_BASE
 }
 
 /*
