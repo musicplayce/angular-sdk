@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/musicplayce/angular-sdk/compare/v1.4.0...v1.5.0) (2020-04-13)
+
+
+### Features
+
+* **auditionservice:** add all calls for auditionservice ([a6e5923](https://github.com/musicplayce/angular-sdk/commit/a6e5923f01800cfbbc304201d940e82ba131d3e2))
+
 # [1.4.0](https://github.com/musicplayce/angular-sdk/compare/v1.3.2...v1.4.0) (2020-04-06)
 
 
