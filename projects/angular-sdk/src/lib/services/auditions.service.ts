@@ -31,10 +31,10 @@ export class AuditionsService {
     /**
      * Returns all auditions with resolved tags and artistis
      *
-     * @param {number} limit size of page
-     * @param {string} next is id_cursor of next page
-     * @param {number} page is number of page of pagination
-     * @return {Observable<AuditionListModel>} as new observable of a list of auditions
+     * @param number limit size of page
+     * @param string next is id_cursor of next page
+     * @param number page is number of page of pagination
+     * @return Observable<AuditionListModel> as new observable of a list of auditions
      */
     public list(
         limit?: number,
@@ -59,8 +59,8 @@ export class AuditionsService {
     /**
      * Returns a single resolved audition.
      *
-     * @param {string} id of audition requested
-     * @returns {Observable<AuditionRetrieveModel>} as new observable from a single audition
+     * @param string id of audition requested
+     * @returns Observable<AuditionRetrieveModel> as new observable from a single audition
      */
     public retrieve(id: string): Observable<AuditionRetrieveModel> {
         return this.retrive$(id)
@@ -68,8 +68,8 @@ export class AuditionsService {
 
     /**
      * Create a audition
-     * @param {string} body of audition
-     * @returns {Observable<AuditionRetrieveModel>} as new observable from new audition
+     * @param string body of audition
+     * @returns Observable<AuditionRetrieveModel> as new observable from new audition
      */
     public create(
         body: AuditionCreateModel
@@ -83,9 +83,9 @@ export class AuditionsService {
     /**
      * Updates an existing audition.
      *
-     * @param {string} id of audition requested
-     * @param {AuditionUploadModel} body contains all possible attributes changeable
-     * @return {Observable<AuditionRetrieveModel>} as new observable from modificated audition
+     * @param string id of audition requested
+     * @param AuditionUploadModel body contains all possible attributes changeable
+     * @return Observable<AuditionRetrieveModel> as new observable from modificated audition
      */
     public update(
         id: String,
@@ -99,8 +99,8 @@ export class AuditionsService {
 
     /**
      * Delete an existing audition
-     * @param {string} id of audition requested
-     * @return {Observable<AuditionRetrieveModel>} as new observable from deleted audition
+     * @param string id of audition requested
+     * @return Observable<AuditionRetrieveModel> as new observable from deleted audition
      */
     public delete(id: String): Observable<AuditionRetrieveModel> {
         return this.httpClient.delete<AuditionRetrieveModel>(
@@ -110,9 +110,9 @@ export class AuditionsService {
 
     /**
      * Attach a post to red playlist
-     * @param {string} id of audition requested
-     * @param {string} id_post of post
-     * @return {Observable<AuditionRetrieveModel>} as new observable from attached playlist
+     * @param string id of audition requested
+     * @param string id_post of post
+     * @return Observable<AuditionRetrieveModel> as new observable from attached playlist
      */
     public attachToRed(
         id: string,
@@ -128,9 +128,9 @@ export class AuditionsService {
 
     /**
      * Attach a post to yellow playlist
-     * @param {string} id of audition requested
-     * @param {string} id_post of post
-     * @return {Observable<AuditionRetrieveModel>} as new observable from attached playlist
+     * @param string id of audition requested
+     * @param string id_post of post
+     * @return Observable<AuditionRetrieveModel> as new observable from attached playlist
      */
     public attachToYellow(
         id: string,
@@ -146,9 +146,9 @@ export class AuditionsService {
 
     /**
      * Attach a post to green playlist
-     * @param {string} id of audition requested
-     * @param {string} id_post of post
-     * @return {Observable<AuditionRetrieveModel>} as new observable from attached playlist
+     * @param string id of audition requested
+     * @param string id_post of post
+     * @return Observable<AuditionRetrieveModel> as new observable from attached playlist
      */
     public attachToGreen(
         id: string,
