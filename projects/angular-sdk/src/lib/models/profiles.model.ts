@@ -1,7 +1,7 @@
 import { RoleData } from './role.model'
-import { PictureData } from './pictures.model'
+import { PictureModel } from './pictures.model'
 
-export interface ProfileData {
+export interface ProfileModel {
     _id?: string
     name?: string
     last_name?: string
@@ -13,8 +13,8 @@ export interface ProfileData {
     deleted?: boolean
     datetime_created?: string
     datetime_updated?: string
-    picture_profile?: PictureData
-    picture_cover?: PictureData
+    picture_profile?: PictureModel
+    picture_cover?: PictureModel
     compositions?: number
     interpretations?: number
     username?: string

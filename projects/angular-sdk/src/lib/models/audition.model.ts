@@ -1,6 +1,6 @@
-import { TagData } from './tags.model'
+import { TagModel } from './tags.model'
 import { PlaylistData } from './playlists.model'
-import { ProfileData } from './profiles.model'
+import { ProfileModel } from './profiles.model'
 import { CursorModel } from './cursor.model'
 
 interface AuditionPlaylists {
@@ -15,8 +15,8 @@ export interface AuditionModel {
     name: String
     description: String
     playlists: AuditionPlaylists[]
-    tags: TagData[]
-    artists: ProfileData[]
+    tags: TagModel[]
+    artists: ProfileModel[]
     video_url: String
 }
 

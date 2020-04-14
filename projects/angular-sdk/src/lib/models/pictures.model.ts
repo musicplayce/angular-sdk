@@ -1,9 +1,9 @@
-export interface PictureData {
+export interface PictureModel {
     id?: string
     url?: string
     type?: string
     resources?: string[]
     deleted?: boolean
-    datetimeCreated?: string
-    datetimeUpdated?: string
+    datetime_created?: string
+    datetime_updated?: string
 }
