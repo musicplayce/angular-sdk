@@ -1,4 +1,4 @@
-export interface PlaylistData {
+export interface PlaylistModel {
     _id?: string
     id_profile?: string
     name?: string

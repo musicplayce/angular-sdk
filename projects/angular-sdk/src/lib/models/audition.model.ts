@@ -1,20 +1,20 @@
 import { TagModel } from './tags.model'
-import { PlaylistData } from './playlists.model'
+import { PlaylistModel } from './playlists.model'
 import { ProfileModel } from './profiles.model'
 import { CursorModel } from './cursor.model'
 
 interface AuditionPlaylists {
-    id_playlist_unclassified: PlaylistData
-    id_playlist_red: PlaylistData
-    id_playlist_yellow: PlaylistData
-    id_playlist_green: PlaylistData
+    unclassified: PlaylistModel
+    red: PlaylistModel
+    yellow: PlaylistModel
+    green: PlaylistModel
 }
 
 export interface AuditionModel {
     _id: String
     name: String
     description: String
-    playlists: AuditionPlaylists[]
+    playlists: AuditionPlaylists
     tags: TagModel[]
     artists: ProfileModel[]
     video_url: String
