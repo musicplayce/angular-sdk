@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/musicplayce/angular-sdk/compare/v1.6.0...v1.6.1) (2020-04-14)
+
+
+### Bug Fixes
+
+* **postsservice:** put cache in filter function ([9171aed](https://github.com/musicplayce/angular-sdk/commit/9171aedcf4b067efced5fd4be6d40dc7c53bd267))
+
 # [1.6.0](https://github.com/musicplayce/angular-sdk/compare/v1.5.1...v1.6.0) (2020-04-13)
 
 
