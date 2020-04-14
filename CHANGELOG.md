@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/musicplayce/angular-sdk/compare/v1.5.1...v1.6.0) (2020-04-13)
+
+
+### Bug Fixes
+
+* **tsconfig:** annotateForClosureCompile true ([42f5cd7](https://github.com/musicplayce/angular-sdk/commit/42f5cd72d47078fee41f1d4631322069dd742ec3))
+
+
+### Features
+
+* **cacheservice:** add cache service to audition service ([ade6bd5](https://github.com/musicplayce/angular-sdk/commit/ade6bd5aa8f57fec02ab8ece7d1232a1762d09da))
+
 ## [1.5.1](https://github.com/musicplayce/angular-sdk/compare/v1.5.0...v1.5.1) (2020-04-13)
 
 
