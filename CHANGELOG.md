@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/musicplayce/angular-sdk/compare/v1.6.1...v1.6.2) (2020-04-14)
+
+
+### Bug Fixes
+
+* **audition-model:** change playlist type ([e6ad9ba](https://github.com/musicplayce/angular-sdk/commit/e6ad9ba9b839ad2f2b99ef236f2962e43ebe5099))
+
 ## [1.6.1](https://github.com/musicplayce/angular-sdk/compare/v1.6.0...v1.6.1) (2020-04-14)
 
 
