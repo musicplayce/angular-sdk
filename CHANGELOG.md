@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/musicplayce/angular-sdk/compare/v1.7.0...v1.7.1) (2020-04-16)
+
+
+### Bug Fixes
+
+* **auditionservice:** put unclassified attach ([0a97cce](https://github.com/musicplayce/angular-sdk/commit/0a97cce2bba6e0a67099a2d8ed146813a3c1dbd2))
+
 # [1.7.0](https://github.com/musicplayce/angular-sdk/compare/v1.6.2...v1.7.0) (2020-04-16)
 
 
