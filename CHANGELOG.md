@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/musicplayce/angular-sdk/compare/v1.6.2...v1.7.0) (2020-04-16)
+
+
+### Features
+
+* **playlistsservice:** add playlists.service ([a6a7c9f](https://github.com/musicplayce/angular-sdk/commit/a6a7c9f76725b98fb040bb42c9b907e2dd63f492))
+
 ## [1.6.2](https://github.com/musicplayce/angular-sdk/compare/v1.6.1...v1.6.2) (2020-04-14)
 
 
