@@ -6,9 +6,10 @@ const API_BASE = '/v1'
 const API_BASE_V2 = '/v2'
 
 //const API_BASE = 'http://localhost:8000/v1'
-const API_DATA_BASE = API_BASE + '/data'
 
+const API_DATA_BASE = API_BASE + '/data'
 const API_AUDITION_BASE = API_BASE + '/auditions'
+const API_PLAYLIST_BASE = API_BASE + '/playlists'
 
 export const environment = {
     production: false,
@@ -27,28 +28,28 @@ export const environment = {
     VALIDATE_TOKEN: API_BASE + '/auth/validate',
     VERIFY_SIGNUP_TOKEN: API_BASE + '/auth/signup/verify',
     RESET_PASSWORD: API_BASE + '/auth/reset',
+    ACCEPT_TERMS: API_BASE + '/auth/me/accept_terms',
+    NO_AUTH_REDIRECT_URL: '',
     POLL: API_BASE + '/polls',
     TERMS: API_BASE + '/terms',
-    ACCEPT_TERMS: API_BASE + '/auth/me/accept_terms',
     USERS: API_BASE + '/users',
     SUBSCRIPTIONS: API_BASE + '/subscriptions',
     CHECKOUT: API_BASE + '/subscriptions/checkout',
     POSTS: API_BASE + '/posts',
     PLACES: API_BASE + '/places',
 
+    // SUBSCRIPTION
     STRIPE_SUBSCRIPTION: API_BASE + '/subscriptions' + '/stripesubscription',
     SUBSCRIPTION_PAYMENT_METHOD: API_BASE + '/subscriptions/paymentmethod',
 
-    NO_AUTH_REDIRECT_URL: '',
-
     // DATA
-
     SINGER_INDICATIONS_SEARCH:
         API_DATA_BASE + '/dashboard/search/indications/singer',
 
     SONGWRITER_INDICATIONS_SEARCH:
         API_DATA_BASE + '/dashboard/search/indications/songwriter',
 
+    // STRIPE
     STRIPE_PUBLIC_KEY: 'pk_test_0YuuwihLVyebquJMexVWEdZS00IcdodAKB',
     STRIPE_SUCCESS_URI: 'http://localhost:4200/dashboard',
     STRIPE_ERROR_URI: 'http://localhost:4200/',
@@ -63,8 +64,12 @@ export const environment = {
     DATA_POLL: API_BASE + '/data/polls/',
     DATA_INDICATION: API_BASE + '/data/indications/',
     DATA_DASH: API_BASE + '/data/dashboard/',
-    //Audition
-    AUDITIONS: API_AUDITION_BASE
+
+    // AUDITION
+    AUDITIONS: API_AUDITION_BASE,
+
+    // PLAYLIST
+    PLAYLISTS: API_PLAYLIST_BASE
 }
 
 /*

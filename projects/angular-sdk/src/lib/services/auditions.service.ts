@@ -9,8 +9,7 @@ import {
     AuditionCreateModel
 } from '../models/audition.model'
 
-import { Observable, defer } from 'rxjs'
-import { publishReplay, refCount, take } from 'rxjs/operators'
+import { Observable } from 'rxjs'
 import { CacheHttpService } from './cachehttp.service'
 
 @Injectable({
