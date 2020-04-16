@@ -163,4 +163,22 @@ export class AuditionsService {
             }
         )
     }
+
+    /**
+     * Attach a post to unclassified playlist
+     * @param string id of audition requested
+     * @param string id_post of post
+     * @return Observable<AuditionRetrieveModel> as new observable from attached playlist
+     */
+    public attachToUnclassified(
+        id: string,
+        id_post: string
+    ): Observable<AuditionRetrieveModel> {
+        return this.httpClient.post<AuditionRetrieveModel>(
+            `${this.API_AUDITIONS}/${id}/unclassified`,
+            {
+                id_post
+            }
+        )
+    }
 }
