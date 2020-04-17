@@ -1,3 +1,17 @@
+## [1.7.2](https://github.com/musicplayce/angular-sdk/compare/v1.7.1...v1.7.2) (2020-04-17)
+
+
+### Bug Fixes
+
+* **auditionservice:** create and update body treatment ([e1c8211](https://github.com/musicplayce/angular-sdk/commit/e1c8211e4b83a950713a33a7c7c2af076accfc9a))
+
+## [1.7.1](https://github.com/musicplayce/angular-sdk/compare/v1.7.0...v1.7.1) (2020-04-16)
+
+
+### Bug Fixes
+
+* **auditionservice:** put unclassified attach ([0a97cce](https://github.com/musicplayce/angular-sdk/commit/0a97cce2bba6e0a67099a2d8ed146813a3c1dbd2))
+
 # [1.7.0](https://github.com/musicplayce/angular-sdk/compare/v1.6.2...v1.7.0) (2020-04-16)
 
 
