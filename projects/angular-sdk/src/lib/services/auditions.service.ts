@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core'
 import { BASE_URL } from '../angular-sdk.module'
 import { environment } from '../../environments/environment'
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import {
     AuditionListModel,
     AuditionRetrieveModel,
@@ -75,9 +75,22 @@ export class AuditionsService {
     public create(
         body: AuditionCreateModel
     ): Observable<AuditionRetrieveModel> {
+        let newBody = new HttpParams().set(
+            'name',
+            body.name ? body.name.toString() : null
+        )
+        if (body.description != null)
+            newBody = newBody.set('description', body.description.toString())
+
+        if (body.video_url != null)
+            newBody = newBody.set('video_url', body.video_url.toString())
+
+        newBody = newBody
+            .set('id_tags', JSON.stringify(body.id_tags))
+            .set('id_artists', JSON.stringify(body.id_artists))
         return this.httpClient.post<AuditionRetrieveModel>(
             `${this.API_AUDITIONS}`,
-            body
+            newBody
         )
     }
 
@@ -92,9 +105,22 @@ export class AuditionsService {
         id: String,
         body: AuditionUpdateModel
     ): Observable<AuditionRetrieveModel> {
+        let newBody = new HttpParams().set(
+            'name',
+            body.name ? body.name.toString() : null
+        )
+        if (body.description != null)
+            newBody = newBody.set('description', body.description.toString())
+
+        if (body.video_url != null)
+            newBody = newBody.set('video_url', body.video_url.toString())
+
+        newBody = newBody
+            .set('id_tags', JSON.stringify(body.id_tags))
+            .set('id_artists', JSON.stringify(body.id_artists))
         return this.httpClient.put<AuditionRetrieveModel>(
             `${this.API_AUDITIONS}/${id}`,
-            body
+            newBody
         )
     }
 
