@@ -1,3 +1,11 @@
+## [1.7.3](https://github.com/musicplayce/angular-sdk/compare/v1.7.2...v1.7.3) (2020-04-17)
+
+
+### Bug Fixes
+
+* **auditonservice:** change update and delete return model ([10f6037](https://github.com/musicplayce/angular-sdk/commit/10f6037fa510aa3e7b37d155e60e1a9df1ba3bcd))
+* **merge:** fix merge request conflits ([9bf9128](https://github.com/musicplayce/angular-sdk/commit/9bf9128c467a4bce8b5c47bc5d332ac0085f3042))
+
 ## [1.7.2](https://github.com/musicplayce/angular-sdk/compare/v1.7.1...v1.7.2) (2020-04-17)
 
 
