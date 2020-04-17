@@ -28,6 +28,10 @@ export interface AuditionUpdateModel {
     video_url: String
 }
 
+export interface AuditionUpdatedModel {
+    message: String
+}
+
 export interface AuditionCreateModel {
     name: String
     description: String

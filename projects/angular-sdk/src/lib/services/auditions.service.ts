@@ -6,7 +6,8 @@ import {
     AuditionListModel,
     AuditionRetrieveModel,
     AuditionUpdateModel,
-    AuditionCreateModel
+    AuditionCreateModel,
+    AuditionUpdatedModel
 } from '../models/audition.model'
 
 import { Observable } from 'rxjs'
@@ -86,13 +87,13 @@ export class AuditionsService {
      *
      * @param string id of audition requested
      * @param AuditionUploadModel body contains all possible attributes changeable
-     * @return Observable<AuditionRetrieveModel> as new observable from modificated audition
+     * @return Observable<AuditionUpdatedModel> as new observable from modificated audition
      */
     public update(
         id: String,
         body: AuditionUpdateModel
-    ): Observable<AuditionRetrieveModel> {
-        return this.httpClient.put<AuditionRetrieveModel>(
+    ): Observable<AuditionUpdatedModel> {
+        return this.httpClient.put<AuditionUpdatedModel>(
             `${this.API_AUDITIONS}/${id}`,
             body
         )
@@ -101,10 +102,10 @@ export class AuditionsService {
     /**
      * Delete an existing audition
      * @param string id of audition requested
-     * @return Observable<AuditionRetrieveModel> as new observable from deleted audition
+     * @return Observable<AuditionUpdatedModel> as new observable from deleted audition
      */
-    public delete(id: String): Observable<AuditionRetrieveModel> {
-        return this.httpClient.delete<AuditionRetrieveModel>(
+    public delete(id: String): Observable<AuditionUpdatedModel> {
+        return this.httpClient.delete<AuditionUpdatedModel>(
             `${this.API_AUDITIONS}/${id}`
         )
     }
