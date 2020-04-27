@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/musicplayce/angular-sdk/compare/v1.7.3...v1.8.0) (2020-04-27)
+
+
+### Features
+
+* **subscriptions:** add UpcomingInvoice and getStipeSubscription ([a889263](https://github.com/musicplayce/angular-sdk/commit/a88926357fe07bde036ade6207f239f0e89f0d87))
+
 ## [1.7.3](https://github.com/musicplayce/angular-sdk/compare/v1.7.2...v1.7.3) (2020-04-17)
 
 
