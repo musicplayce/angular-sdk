@@ -4,6 +4,8 @@ import { PlaylistModel } from '../models/playlists.model'
 import { BASE_URL } from '../angular-sdk.module'
 import { CacheHttpService } from './cachehttp.service'
 import { environment } from '../../environments/environment'
+import { CursorModel } from '../models/cursor.model'
+import { HttpParams } from '@angular/common/http'
 
 @Injectable({
     providedIn: 'root'
@@ -25,14 +27,27 @@ export class PlaylistsService {
      * Returns a specific playlist by its ID
      *
      * @param id the playlist's id
+     * @param cursor the cursor to playlist's pagination
+     * @param isPreviousPage if true return previous playlist's page
      * @return Observable<PlaylistModel> as new observable of the playlist
      */
     public retrieve(
         id: string,
-        timeout: number = 0
+        timeout: number = 0,
+        cursor?: CursorModel,
+        isPreviousPage?: boolean
     ): Observable<PlaylistModel> {
+        let params = new HttpParams()
+            .set(
+                'next', 
+                cursor != null && cursor.next != null && !(isPreviousPage || null)
+                    ? cursor.next
+                    : cursor != null && cursor.previous != null && (isPreviousPage || null) 
+                        ? cursor.previous 
+                        : ''
+            )
         return this.cacheHttp.get<PlaylistModel>(
-            this.API_PLAYLISTS + '/' + id,
+            this.API_PLAYLISTS + '/' + id + '?' + params.toString(),
             timeout
         )
     }
