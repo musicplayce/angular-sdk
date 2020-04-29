@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/musicplayce/angular-sdk/compare/v1.8.0...v1.9.0) (2020-04-29)
+
+
+### Features
+
+* **playlists:** Add playlist pagination parameters ([2e7eaf4](https://github.com/musicplayce/angular-sdk/commit/2e7eaf4590c0491db07c1c0e8ab98528ddac4894))
+
 # [1.8.0](https://github.com/musicplayce/angular-sdk/compare/v1.7.3...v1.8.0) (2020-04-27)
 
 
