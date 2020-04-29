@@ -37,15 +37,16 @@ export class PlaylistsService {
         cursor?: CursorModel,
         isPreviousPage?: boolean
     ): Observable<PlaylistModel> {
-        let params = new HttpParams()
-            .set(
-                'next', 
-                cursor != null && cursor.next != null && !(isPreviousPage || null)
-                    ? cursor.next
-                    : cursor != null && cursor.previous != null && (isPreviousPage || null) 
-                        ? cursor.previous 
-                        : ''
-            )
+        let params = new HttpParams().set(
+            'next',
+            cursor != null && cursor.next != null && !(isPreviousPage || null)
+                ? cursor.next
+                : cursor != null &&
+                  cursor.previous != null &&
+                  (isPreviousPage || null)
+                ? cursor.previous
+                : ''
+        )
         return this.cacheHttp.get<PlaylistModel>(
             this.API_PLAYLISTS + '/' + id + '?' + params.toString(),
             timeout
