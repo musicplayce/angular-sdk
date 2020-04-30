@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/musicplayce/angular-sdk/compare/v1.10.0...v1.10.1) (2020-04-30)
+
+
+### Bug Fixes
+
+* **subscription-model:** export models so that we can access them in the frontend ([2f47d82](https://github.com/musicplayce/angular-sdk/commit/2f47d822c9ef9aaa1295f90dfeb6e81f64a25c1e))
+
 # [1.10.0](https://github.com/musicplayce/angular-sdk/compare/v1.9.0...v1.10.0) (2020-04-30)
 
 
