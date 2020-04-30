@@ -2,7 +2,7 @@ interface PaymentMethodData {
     id: string
 }
 
-interface StripeSubscription {
+export interface StripeSubscription {
     id: string
     cancel_at: number
     cancel_at_period_end: boolean
@@ -15,7 +15,7 @@ interface StripeSubscription {
     next_pending_invoice_item_invoice: null
 }
 
-interface UpcomingInvoice {
+export interface UpcomingInvoice {
     amount_due: number
     amount_paid: number
     amount_remaining: number
@@ -33,9 +33,11 @@ interface UpcomingInvoice {
 export class UpcomingInvoiceModel {
     data: UpcomingInvoice
 }
+
 export class StripeSubscriptionModel {
     data: StripeSubscription
 }
+
 export class PaymentMethodListModel {
     data: PaymentMethodData[]
 }
