@@ -24,6 +24,19 @@ export class SubscriptionsService {
         this.BASE_URL = base_url_injected
     }
 
+    cancelSubscription(id: string): Observable<String> {
+        return this.httpClient.delete<String>(
+            this.BASE_URL + this.API_STRIPE_SUBSCRIPTION + '/' + id
+        )
+    }
+
+    uncancelSubscription(id: string): Observable<String> {
+        return this.httpClient.post<String>(
+            this.BASE_URL + this.API_STRIPE_SUBSCRIPTION + '/' + id + '/revive',
+            null
+        )
+    }
+
     createPaymentMethod(
         tokenId: string
     ): Observable<PaymentMethodRetriveModel> {
