@@ -1,3 +1,10 @@
+## [1.10.2](https://github.com/musicplayce/angular-sdk/compare/v1.10.1...v1.10.2) (2020-04-30)
+
+
+### Bug Fixes
+
+* **subscriptionservice:** change environment variable ([4c164f0](https://github.com/musicplayce/angular-sdk/commit/4c164f06479650bc485444cd3006ecb24b1e8eee))
+
 ## [1.10.1](https://github.com/musicplayce/angular-sdk/compare/v1.10.0...v1.10.1) (2020-04-30)
 
 
