@@ -29,13 +29,13 @@ export class SubscriptionsService {
 
     cancelSubscription(id: string): Observable<String> {
         return this.httpClient.delete<String>(
-            this.BASE_URL + this.API_STRIPE_SUBSCRIPTION + '/' + id
+            this.BASE_URL + this.API_SUBSCRIPTION + '/' + id
         )
     }
 
     uncancelSubscription(id: string): Observable<String> {
         return this.httpClient.post<String>(
-            this.BASE_URL + this.API_STRIPE_SUBSCRIPTION + '/' + id + '/revive',
+            this.BASE_URL + this.API_SUBSCRIPTION + '/' + id + '/revive',
             null
         )
     }
