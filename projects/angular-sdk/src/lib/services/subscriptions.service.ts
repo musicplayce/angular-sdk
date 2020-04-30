@@ -5,7 +5,9 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import {
     PaymentMethodListModel,
-    PaymentMethodRetriveModel
+    PaymentMethodRetriveModel,
+    StripeSubscriptionModel,
+    UpcomingInvoiceModel
 } from '../models/subscription.model'
 
 @Injectable({
@@ -14,6 +16,7 @@ import {
 export class SubscriptionsService {
     public BASE_URL: string
 
+    API_SUBSCRIPTION = environment.SUBSCRIPTIONS
     API_STRIPE_SUBSCRIPTION = environment.STRIPE_SUBSCRIPTION
     API_SUBSCRIPTION_PAYMENT_METHOD = environment.SUBSCRIPTION_PAYMENT_METHOD
 
@@ -79,6 +82,20 @@ export class SubscriptionsService {
             `${this.BASE_URL +
                 this.API_STRIPE_SUBSCRIPTION}/${stripe_plan}/${coupon}`,
             null
+        )
+    }
+
+    getStripeSubscription(
+        subscriptionId: string
+    ): Observable<StripeSubscriptionModel> {
+        return this.httpClient.get<StripeSubscriptionModel>(
+            `${this.BASE_URL + this.API_SUBSCRIPTION}/${subscriptionId}/stripe`
+        )
+    }
+
+    getUpcomingInvoice(): Observable<UpcomingInvoiceModel> {
+        return this.httpClient.get<UpcomingInvoiceModel>(
+            `${this.BASE_URL + this.API_SUBSCRIPTION}/invoice/upcoming`
         )
     }
 }

@@ -1,3 +1,17 @@
+# [1.9.0](https://github.com/musicplayce/angular-sdk/compare/v1.8.0...v1.9.0) (2020-04-29)
+
+
+### Features
+
+* **playlists:** Add playlist pagination parameters ([2e7eaf4](https://github.com/musicplayce/angular-sdk/commit/2e7eaf4590c0491db07c1c0e8ab98528ddac4894))
+
+# [1.8.0](https://github.com/musicplayce/angular-sdk/compare/v1.7.3...v1.8.0) (2020-04-27)
+
+
+### Features
+
+* **subscriptions:** add UpcomingInvoice and getStipeSubscription ([a889263](https://github.com/musicplayce/angular-sdk/commit/a88926357fe07bde036ade6207f239f0e89f0d87))
+
 ## [1.7.3](https://github.com/musicplayce/angular-sdk/compare/v1.7.2...v1.7.3) (2020-04-17)
 
 
