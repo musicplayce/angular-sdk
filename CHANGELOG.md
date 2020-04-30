@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/musicplayce/angular-sdk/compare/v1.9.0...v1.10.0) (2020-04-30)
+
+
+### Features
+
+* **subscriptions:** put cancel and uncancel methods ([3f02bba](https://github.com/musicplayce/angular-sdk/commit/3f02bbabcf2977317a4cf17e10db36c8331da107))
+
 # [1.9.0](https://github.com/musicplayce/angular-sdk/compare/v1.8.0...v1.9.0) (2020-04-29)
 
 
