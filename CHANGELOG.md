@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/musicplayce/angular-sdk/compare/v1.10.2...v1.11.0) (2020-05-01)
+
+
+### Features
+
+* **audition:** add datetime expiration parameter to create function ([0558371](https://github.com/musicplayce/angular-sdk/commit/055837174c6a7e82a21c30c7b150092df1c3bb54))
+
 ## [1.10.2](https://github.com/musicplayce/angular-sdk/compare/v1.10.1...v1.10.2) (2020-04-30)
 
 
