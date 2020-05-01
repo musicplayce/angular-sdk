@@ -38,6 +38,7 @@ export interface AuditionCreateModel {
     id_tags: String[]
     id_artists: String[]
     video_url: String
+    datetime_expiration?: Date
 }
 
 export interface AuditionListModel {
