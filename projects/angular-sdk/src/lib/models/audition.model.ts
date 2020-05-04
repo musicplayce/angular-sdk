@@ -18,6 +18,7 @@ export interface AuditionModel {
     tags: TagModel[]
     artists: ProfileModel[]
     video_url: String
+    datetime_expiration?: Date
 }
 
 export interface AuditionUpdateModel {
@@ -26,6 +27,7 @@ export interface AuditionUpdateModel {
     id_tags: String[]
     id_artists: String[]
     video_url: String
+    datetime_expiration?: Date
 }
 
 export interface AuditionUpdatedModel {

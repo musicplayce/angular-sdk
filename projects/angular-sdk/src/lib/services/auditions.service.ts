@@ -121,6 +121,11 @@ export class AuditionsService {
 
         if (body.video_url != null)
             newBody = newBody.set('video_url', body.video_url.toString())
+        if (body.datetime_expiration != null)
+            newBody = newBody.set(
+                'datetime_expiration',
+                body.datetime_expiration.toISOString()
+            )
 
         newBody = newBody
             .set('id_tags', JSON.stringify(body.id_tags))
