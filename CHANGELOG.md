@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/musicplayce/angular-sdk/compare/v1.11.0...v1.12.0) (2020-05-04)
+
+
+### Features
+
+* **audition:** add datetime expiration to updateModel, AuditionModel ([a8404af](https://github.com/musicplayce/angular-sdk/commit/a8404af54018bbc8536270bfd2a21ddf72bb4944))
+
 # [1.11.0](https://github.com/musicplayce/angular-sdk/compare/v1.10.2...v1.11.0) (2020-05-01)
 
 
