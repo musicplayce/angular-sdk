@@ -5,6 +5,10 @@ import { environment } from '../../environments/environment'
 import { Observable } from 'rxjs'
 
 import { PostListModel } from '../models/posts.model'
+import { HttpClient, HttpParams } from '@angular/common/http'
+import { CursorModel } from 'angular-sdk/lib/models/cursor.model'
+
+const PAGE_SIZE = 6
 
 @Injectable({
     providedIn: 'root'
@@ -13,13 +17,16 @@ export class PostsService {
     public BASE_URL: string
 
     private API_POSTS: string
+    private API_TAGS: string
 
     constructor(
         @Inject(BASE_URL) base_url_injected: string,
-        private cacheHttp: CacheHttpService
+        private cacheHttp: CacheHttpService,
+        private http: HttpClient
     ) {
         this.BASE_URL = base_url_injected
         this.API_POSTS = base_url_injected + environment.POSTS
+        this.API_TAGS = base_url_injected + environment.TAGS
     }
 
     /**
@@ -48,6 +55,76 @@ export class PostsService {
                 limit ? limit : ''
             }&next=${next ? next : ''}`,
             timeout
+        )
+    }
+
+    /**
+     * Returns all posts indicated to a profile
+     *
+     * @param string id of profile
+     * @param CursorModel cursor object of current page
+     * @param boolean flag to indicate if get previous or next page
+     * @return Observable<PostListModel> as new observable of a list of posts
+     */
+    getIndicatedTo(
+        id_profile: string,
+        cursor?: CursorModel,
+        isPreviousPage?: boolean
+    ): Observable<PostListModel> {
+        let params = new HttpParams()
+            .set('limit', PAGE_SIZE.toString())
+            .set(
+                'next',
+                cursor != null &&
+                    cursor.next != null &&
+                    !(isPreviousPage || null)
+                    ? cursor.next
+                    : cursor != null &&
+                      cursor.previous != null &&
+                      (isPreviousPage || null)
+                    ? cursor.previous
+                    : ''
+            )
+
+        return this.http.get<PostListModel>(
+            `${this.API_POSTS}/indications?id_profile=${id_profile}`,
+            { params: params }
+        )
+    }
+
+    /**
+     * Returns all posts that contain a tag
+     *
+     * @param string id of tag
+     * @param CursorModel cursor object of current page
+     * @param boolean flag to indicate if get previous or next page
+     * @return Observable<PostListModel> as new observable of a list of posts
+     */
+    getByHashtagId(
+        id_tag: string,
+        cursor?: CursorModel,
+        isPreviousPage?: boolean
+    ): Observable<PostListModel> {
+        let params = new HttpParams()
+            .set('limit', PAGE_SIZE.toString())
+            .set(
+                'next',
+                cursor != null &&
+                    cursor.next != null &&
+                    !(isPreviousPage || null)
+                    ? cursor.next
+                    : cursor != null &&
+                      cursor.previous != null &&
+                      (isPreviousPage || null)
+                    ? cursor.previous
+                    : ''
+            )
+
+        return this.http.get<PostListModel>(
+            `${this.API_TAGS}/${id_tag}/posts`,
+            {
+                params: params
+            }
         )
     }
 }

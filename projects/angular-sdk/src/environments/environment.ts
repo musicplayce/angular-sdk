@@ -37,6 +37,7 @@ export const environment = {
     CHECKOUT: API_BASE + '/subscriptions/checkout',
     POSTS: API_BASE + '/posts',
     PLACES: API_BASE + '/places',
+    TAGS: API_BASE + '/tags',
 
     // SUBSCRIPTION
     STRIPE_SUBSCRIPTION: API_BASE + '/subscriptions' + '/stripesubscription',
