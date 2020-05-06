@@ -72,6 +72,7 @@ export class PostsService {
         isPreviousPage?: boolean
     ): Observable<PostListModel> {
         let params = new HttpParams()
+            .set('id_profile', id_profile)
             .set('limit', PAGE_SIZE.toString())
             .set(
                 'next',
@@ -87,7 +88,7 @@ export class PostsService {
             )
 
         return this.http.get<PostListModel>(
-            `${this.API_POSTS}/indications?id_profile=${id_profile}`,
+            `${this.API_POSTS}/indications/to`,
             { params: params }
         )
     }
