@@ -6,7 +6,7 @@ import { Observable } from 'rxjs'
 
 import { PostListModel } from '../models/posts.model'
 import { HttpClient, HttpParams } from '@angular/common/http'
-import { CursorModel } from 'angular-sdk/lib/models/cursor.model'
+import { CursorModel } from '../models/cursor.model'
 
 const PAGE_SIZE = 6
 
