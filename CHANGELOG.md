@@ -1,3 +1,16 @@
+# [1.13.0](https://github.com/musicplayce/angular-sdk/compare/v1.12.0...v1.13.0) (2020-05-07)
+
+
+### Bug Fixes
+
+* **posts:** fix posts indications to profile router ([05c907a](https://github.com/musicplayce/angular-sdk/commit/05c907a3652242e7ed43f3a44e27c7a066cd230b))
+* **postsservice:** cursor model file ([46cac0c](https://github.com/musicplayce/angular-sdk/commit/46cac0c140f8523eee602cd25e37c53b589ff637))
+
+
+### Features
+
+* **posts:** add get posts by tag and profile functions ([1595c65](https://github.com/musicplayce/angular-sdk/commit/1595c6542fd0ff1992cf56a0686146005aa65806))
+
 # [1.12.0](https://github.com/musicplayce/angular-sdk/compare/v1.11.0...v1.12.0) (2020-05-04)
 
 
