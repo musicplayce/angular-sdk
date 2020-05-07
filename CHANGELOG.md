@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/musicplayce/angular-sdk/compare/v1.13.0...v1.13.1) (2020-05-07)
+
+
+### Bug Fixes
+
+* **post.service:** publish export  postService ([49540b5](https://github.com/musicplayce/angular-sdk/commit/49540b51ba78f4820daadd4ec1945d11c5f85afc))
+
 # [1.13.0](https://github.com/musicplayce/angular-sdk/compare/v1.12.0...v1.13.0) (2020-05-07)
 
 
