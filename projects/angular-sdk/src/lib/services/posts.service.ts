@@ -31,7 +31,7 @@ export class PostsService {
 
     /**
      * Returns all posts by tags and artistis
-     *
+
      * @param array of string for id_tags
      * @param array of string for id_artists (id_profile)
      * @param number limit size of page
