@@ -1,3 +1,10 @@
+## [1.13.2](https://github.com/musicplayce/angular-sdk/compare/v1.13.1...v1.13.2) (2020-05-14)
+
+
+### Bug Fixes
+
+* **sotifyauthmodel:** accepted terms ([3f68139](https://github.com/musicplayce/angular-sdk/commit/3f681398fa4fa53e9c5eaa7468f1e8571c77bd00))
+
 ## [1.13.1](https://github.com/musicplayce/angular-sdk/compare/v1.13.0...v1.13.1) (2020-05-07)
 
 
