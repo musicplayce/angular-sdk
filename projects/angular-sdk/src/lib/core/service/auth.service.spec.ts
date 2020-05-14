@@ -93,7 +93,10 @@ describe('AuthService', () => {
         const credentials: SpotifyAuth = {
             code: '1',
             redirect_uri: `${service.SPOTIFY_REDIRECT_URI}`,
-            device_token: '1'
+            device_token: '1',
+            accepted_marketing: 1,
+            accepted_policy: 1,
+            accepted_terms: 1
         }
 
         service.loginSpotify(credentials).subscribe(retrive => {
